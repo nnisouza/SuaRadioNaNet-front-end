@@ -2,6 +2,25 @@ body{
     background: url('../img/marcacao/bg.jpg') no-repeat fixed;
     background-size: cover;
 }
-.header{
+.header,
+.container .wrapper .gallery a.icon,
+.container .wrapper .news,
+.choiseRadio .contenido,
+.horoscopo,
+.container .wrapper .novidades h2:before,
+.container .wrapper .novidades .newControls:before{
     background-color: #ee1847;
+}
+.dense,
+.container .menu{
+    border-color: #ee1847;
+}
+.footer .content p,
+.container .menu ul li a{
+    color: #ee1847;
+}
+.footer .content .socialIcons li a:hover i,
+.container .heading .sec3 .socialIcons li a,
+.dense p{
+    color: #ee1847;
 }

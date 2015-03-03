@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
+        <title>Sua Rádio na Net</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -14,27 +14,511 @@
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/theme.css">
         <link rel="stylesheet" href="css/grid.css">
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+        <link href="js/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
+        <link href="js/vendor/owl-carousel/owl.theme.css" rel="stylesheet">
+        <link href="js/vendor/owl-carousel/owl.transitions.css" rel="stylesheet">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
     <body>
 
-        <div class="header"></div>
-        <div class="holder"></div>
-        
-        <div class="container">
-           <div class="heading">
-               <div class="logo">logoooOooOO</div>
-           </div>
-            <div class="wrapper">
-                yooo
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=280559398795233&version=v2.0";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+
+        <div class="header">
+            <div class="contenido">
+                <div class="controls">
+                    <button class="play">
+                        <i class="fa fa-pause fa-lg"></i>
+                    </button>
+                    <div class="wichStation">
+                        <p>
+                            no ar<br/>
+                            <span>
+                                Gravity
+                            </span>
+                        </p>
+                    </div>
+                    <div id='bars' class="playing">
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                    </div>
+                    <button id="changeRadio">
+                        <i class="fa fa-chevron-down fa-2x"></i>
+                    </button>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="visitor">
+                    <p>
+                        <i class="fa fa-user"></i>
+                        visitante Nº
+                        <span>
+                            27543
+                        </span>
+                    </p>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="watch">
+                    <p>
+                        Assista
+                        <i class="fa fa-desktop"></i>
+                    </p>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="toApp">
+                    <p>
+                        Ouça no
+                        <i class="fa fa-apple fa-2x"></i>
+                        <i class="fa fa-android fa-2x"></i>
+                    </p>
+                </div>
+
             </div>
-            <div class="sideBar">
-                oee
+        </div>
+        <div class="choiseRadio">
+            <div class="contenido">
+                <ul class="clearfix">
+                    <li>
+                        <a href="javascript:void();" data-sound="gravity" data-name="Gravity">
+                            <span class="icon">
+                                <i class="fa fa-play fa-lg"></i>
+                            </span>
+                            <span class="name">
+                                Gravity
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void();" data-sound="so-so-fresh" data-name="So So Fresh">
+                            <span class="icon">
+                                <i class="fa fa-play fa-lg"></i>
+                            </span>
+                            <span class="name">
+                                So So Fresh
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void();" data-sound="iron-man" data-name="Iron Man">
+                            <span class="icon">
+                                <i class="fa fa-play fa-lg"></i>
+                            </span>
+                            <span class="name">
+                                Iron Man
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void();" data-sound="gravity" data-name="Gravity">
+                            <span class="icon">
+                                <i class="fa fa-play fa-lg"></i>
+                            </span>
+                            <span class="name">
+                                Gravity
+                            </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        
+        <div class="container clearfix">
+            <div class="heading clearfix">
+               <div class="sec1">
+                   <div class="logo">
+                       <img src="img/marcacao/logo.png" alt=""/>
+                   </div>
+               </div>
+               <div class="sec2">
+                   <div class="dense d468-60">
+                       <p>468 X 60</p>
+                   </div>
+               </div>
+               <div class="sec3">
+                    <ul class="socialIcons">
+                        <li>
+                            <a href="http://facebook.com/" target="_blank">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://facebook.com/" target="_blank">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://facebook.com/" target="_blank">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="http://facebook.com/" target="_blank">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+               </div>
+            </div>
+            <div class="menu">
+                <ul>
+                    <li><a href="">A Rádio</a></li>
+                    <li><a href="">Programação</a></li>
+                    <li><a href="">Promoções</a></li>
+                    <li><a href="">Novidades</a></li>
+                    <li><a href="">Eventos</a></li>
+                    <li><a href="">Galerias</a></li>
+                    <li><a href="">Locutores</a></li>
+                    <li><a href="">Contatos</a></li>
+                </ul>
+            </div>
+            <div class="slider" id="homeSlider">
+                <ul id="mainSlider">
+                    <li class="item">
+                        <img src="img/marcacao/banner.jpg" alt="">
+                        <div class="labelContent">
+                            <span>Participe da promoção e curta este Megashow!</span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <img src="img/marcacao/banner.jpg" alt="">
+                        <div class="labelContent">
+                            <span>Participe da promoção e curta este Megashow!</span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <img src="img/marcacao/banner.jpg" alt="">
+                        <div class="labelContent">
+                            <span>Participe da promoção e curta este Megashow!</span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <img src="img/marcacao/banner.jpg" alt="">
+                        <div class="labelContent">
+                            <span>Participe da promoção e curta este Megashow!</span>
+                        </div>
+                    </li>
+                    <li class="item">
+                        <img src="img/marcacao/banner.jpg" alt="">
+                        <div class="labelContent">
+                            <span>Participe da promoção e curta este Megashow!</span>
+                        </div>
+                    </li>
+                </ul>
+                <ul id="thumbSlider">
+                    <li class="item" style="background: url('img/marcacao/banner.jpg') center center;background-size: cover;"></li>
+                    <li class="item" style="background: url('img/marcacao/banner.jpg') center center;background-size: cover;"></li>
+                    <li class="item" style="background: url('img/marcacao/banner.jpg') center center;background-size: cover;"></li>
+                    <li class="item" style="background: url('img/marcacao/banner.jpg') center center;background-size: cover;"></li>
+                    <li class="item" style="background: url('img/marcacao/banner.jpg') center center;background-size: cover;"></li>
+                </ul>
+            </div>
+            <div class="clearfix">
+                <div class="wrapper">
+                    <div class="novidades">
+                        <h2>
+                            <span>
+                                novidades
+                            </span>
+                        </h2>
+                        <ul id="novidadeSlider">
+                            <li class="item">
+                                <img src="img/marcacao/novidades.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="img/marcacao/novidades.jpg" alt="">
+                            </li>
+                            <li class="item">
+                                <img src="img/marcacao/novidades.jpg" alt="">
+                            </li>
+
+                        </ul>
+                        <div class="newControls">
+                            <div id="nPrev">
+                                <i class="fa fa-chevron-left"></i>
+                            </div>
+                            <div id="nNext">
+                                <i class="fa fa-chevron-right"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="galleryTitle clearfix">
+                        <div class="dense d468-60">
+                            <p>468x60</p>
+                        </div>
+                        <h3>Galeria</h3>
+                    </div>
+                    <div class="gallery clearfix">
+                        <div class="photos">
+                            <ul>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                            </ul>
+                            <a href="" class="icon"><i class="fa fa-picture-o fa-2x"></i></a>
+                        </div>
+                        <div class="videos">
+                            <ul>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                </li>
+                            </ul>
+                            <a href="" class="icon"><i class="fa fa-video-camera fa-2x"></i></a>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <span class="icon">
+                            <i class="fa fa-bookmark"></i>
+                            News
+                        </span>
+                    </div>
+                    <div class="topTen">
+                        <ul id="tenList">
+                            <div class="half">
+                                <li class="first">
+                                    <span>1</span>
+                                    <p>
+                                        Stay With Me
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span>2</span>
+                                    <p>
+                                        Stay With Me
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span>3</span>
+                                    <p>
+                                        Stay With Me
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span>4</span>
+                                    <p>
+                                        Stay With Me
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span>5</span>
+                                    <p>
+                                        Stay With Me
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                            </div>
+                            <div class="half">
+                                <li>
+                                    <span>6</span>
+                                    <p>
+                                        Stay With Me
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span>7</span>
+                                    <p>
+                                        Stay With Me
+                                        <br/>
+                                        <span contenteditable>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span>8</span>
+                                    <p>
+                                        Stay With Me
+                                        <br/>
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span>9</span>
+                                    <p>
+                                        Stay With Me
+                                        <br/>
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <span>10</span>
+                                    <p>
+                                        Stay With Me
+                                        <br/>
+                                        <span>
+                                            <i class="fa fa-chevron-right"></i>
+                                            Sam Smith
+                                        </span>
+                                    </p>
+                                </li>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+                <div class="sideBar">
+                    <div class="dense d250-250">
+                        <p>250x250</p>
+                    </div>
+                    <div>voting widget</div>
+                    <div class="dense d250-250">
+                        <p>250x250</p>
+                    </div>
+                    <div class="dense d250-250">
+                        <p>250x250</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="horoscopo">
+                <ul id="signos">
+                    <li>Sagitário</li>
+                    <li>Capricornio</li>
+                    <li>Aquário</li>
+                    <li>Virgem</li>
+                    <li>Gêmeos</li>
+                    <li>Escorpião</li>
+                    <li>Leão</li>
+                    <li>Touro</li>
+                    <li>Áries</li>
+                    <li>Câncer</li>
+                    <li>Peixes</li>
+                </ul>
+                <div id="signoPrev" class="horsCtrl">
+                    <i class="fa fa-chevron-left fa-2x"></i>
+                </div>
+                <div id="signoNext" class="horsCtrl">
+                    <i class="fa fa-chevron-right fa-2x"></i>
+                </div>
+            </div>
+
+            <div class="soundcloud">
+                <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/6032749&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+            </div>
+            <div class="clearfix threeBlocksAsside">
+                <div class="dense d300-300">
+                    <p>300x300</p>
+                </div>
+                <div class="dense d300-300">
+                    <p>300x300</p>
+                </div>
+                <div class="dense d300-300">
+                    <p>300x300</p>
+                </div>
+            </div>
+            <div class="facebookBlock">
+                <center>
+                    <div class="fb-like-box" data-href="https://www.facebook.com/nicovega" data-width="920" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>
+                </center>
+            </div>
+            <div class="dense d728-90">
+                <p>728x90</p>
             </div>
         </div>
         <div class="footer">
-            <div class="content"></div>
+            <div class="content">
+                <p>
+                    Todos os Direitos Reservados ®<br/>
+                    <a href="http://suaradionanet.com/" target="_blank">
+                        <span>suaradionanet</span>.com
+                    </a>
+                </p>
+                <ul class="socialIcons">
+                    <li>
+                        <a href="http://facebook.com/" target="_blank">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://facebook.com/" target="_blank">
+                            <i class="fa fa-google-plus"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://facebook.com/" target="_blank">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="http://facebook.com/" target="_blank">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
         </div>
         
 
@@ -42,6 +526,7 @@
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 
         <script src="js/plugins.js"></script>
+        <script src="js/vendor/owl-carousel/owl.carousel.js"></script>
         <script src="js/main.js"></script>
     </body>
 </html>
