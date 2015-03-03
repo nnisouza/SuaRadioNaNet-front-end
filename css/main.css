@@ -892,8 +892,8 @@ body{
         page-break-after: avoid;
     }
 }
-.half {
-    width: 50%;
+#tenList  .half {
+    width: 220px;
     float: left;
 
 }
@@ -902,6 +902,11 @@ body{
     list-style: none;
     margin: 0;
     padding:  10px 0 0;
+    float: left;
+}
+#tenTitleLink {
+    width: 240px;
+    height: 270px;
 }
 #tenList li{
     box-sizing: border-box;
@@ -921,9 +926,31 @@ body{
     float: left;
     margin-right: 10px;
 }
+#tenList li span.musicName{
+    font-size: 14px;
+    font-weight: 600;
+}
+#tenList li span.artistName{
+    font-size: 14px;
+    font-weight: 400;
+}
 #tenList li.first>span{background: #21252b;}
 
 #tenList li p{
     float: left;
     margin: 0;
+}
+
+#tenList li:before,
+#tenList li:after {
+    content: " ";
+    display: table;
+}
+
+#tenList li:after {
+    clear: both;
+}
+
+#tenList li {
+    *zoom: 1;
 }
