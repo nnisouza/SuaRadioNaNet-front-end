@@ -892,26 +892,34 @@ body{
         page-break-after: avoid;
     }
 }
-#tenList  .half {
-    width: 220px;
+.topTen{
     float: left;
-
+    width: 435px;
+}
+#tenList  .half {
+    width: 215px;
+    float: left;
 }
 
 #tenList {
     list-style: none;
     margin: 0;
     padding:  10px 0 0;
-    float: left;
 }
-#tenTitleLink {
+.tenTitleLink {
     width: 240px;
     height: 270px;
+    background: red;
+    float: left;
+    margin-top: 10px;
 }
 #tenList li{
     box-sizing: border-box;
-    padding: 0 10px 5px;
-    height: 50px;
+    padding: 0 10px 10px;
+/*    height: 50px;*/
+}
+#tenList li i{
+    font-size: 8px;
 }
 #tenList li>span{
     display: inline-block;
