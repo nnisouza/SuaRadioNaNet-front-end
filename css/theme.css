@@ -8,7 +8,8 @@ body{
 .choiseRadio .contenido,
 .horoscopo,
 .container .wrapper .novidades h2:before,
-.container .wrapper .novidades .newControls:before{
+.container .wrapper .novidades .newControls:before,
+.container .wrapper .mostPopularArtist .popHead{
     background-color: #ee1847;
 }
 .dense,
