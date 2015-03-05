@@ -149,12 +149,12 @@ $(document).ready(function() {
         $(this).find('i').each(function() {
             if($(this).hasClass('fa-play')) {
                 $(this).removeClass('fa-play').addClass('fa-pause');
-                $('#bars').addClass('playing');
-                audioElement.play();
+//                $('#bars').addClass('playing');
+                audio.play();
             } else {
                 $(this).removeClass('fa-pause').addClass('fa-play');
-                $('#bars').removeClass('playing');
-                audioElement.pause();
+//                $('#bars').removeClass('playing');
+                audio.pause();
             }
         });
     });
@@ -169,5 +169,12 @@ $(document).ready(function() {
         audio.setAttribute('src', 'sound/' + musicName + '.m4a');
 
         $('.header .wichStation p span').text(radioName);
+
+        $('.header button.play').find('i').each(function() {
+            $(this).removeClass('fa-play').addClass('fa-pause');
+//            $('#bars').removeClass('playing');
+            audio.play();
+        });
+
     });
 });
