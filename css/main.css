@@ -148,6 +148,7 @@ body{
     position: absolute;
     width: 5px;
     transition: height 0.3s ease;
+    display: none;
 }
 #bars.playing .bar{
     -webkit-animation: sound 0ms -800ms linear infinite alternate;

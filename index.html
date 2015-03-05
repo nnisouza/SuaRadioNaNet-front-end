@@ -20,6 +20,11 @@
         <link href="js/vendor/owl-carousel/owl.transitions.css" rel="stylesheet">
 
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+
+        <style>
+            div#player{ width:65px; height:45px;position: absolute; top:6px;left: 0;}
+            div#player > canvas{ width:65px; height:45px; background:#ee1847; float:left;}
+        </style>
     </head>
     <body>
 
@@ -47,6 +52,10 @@
                         </p>
                     </div>
                     <div id='bars' class="playing">
+                      <div id="player">
+                          <div id="audio_box"></div>
+                          <canvas id="analyser_render"></canvas>
+                      </div>
                       <div class='bar'></div>
                       <div class='bar'></div>
                       <div class='bar'></div>

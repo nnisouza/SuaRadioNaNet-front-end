@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+<style>
+div#player{ width:65px; height:50px;margin:50px auto; }
+div#player > canvas{ width:65px; height:50px; background:#ee1847; float:left;}
+</style>
+
+
+</head>
+<body>
+<div id="player">
+  <div id="audio_box"></div>
+  <canvas id="analyser_render"></canvas>
+</div>
+
+
+<div class="header">
+            <div class="contenido">
+                <div class="controls">
+                    <button class="play">
+                        <i class="fa fa-pause fa-lg"></i>
+                    </button>
+                    <div class="wichStation">
+                        <p>
+                            no ar<br/>
+                            <span>
+                                Gravity
+                            </span>
+                        </p>
+                    </div>
+                    <div id='bars' class="playing">
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                      <div class='bar'></div>
+                    </div>
+                    <button id="changeRadio">
+                        <i class="fa fa-chevron-down fa-2x"></i>
+                    </button>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="visitor">
+                    <p>
+                        <i class="fa fa-user"></i>
+                        visitante Nº
+                        <span>
+                            27543
+                        </span>
+                    </p>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="watch">
+                    <p>
+                        Assista
+                        <i class="fa fa-desktop"></i>
+                    </p>
+                </div>
+
+                <div class="separator"></div>
+
+                <div class="toApp">
+                    <p>
+                        Ouça no
+                        <i class="fa fa-apple fa-2x"></i>
+                        <i class="fa fa-android fa-2x"></i>
+                    </p>
+                </div>
+
+            </div>
+        </div>
+        <div class="choiseRadio">
+            <div class="contenido">
+                <ul class="clearfix">
+                    <li>
+                        <a href="#" data-sound="gravity" data-name="Gravity">
+                            <span class="icon">
+                                <i class="fa fa-play fa-lg"></i>
+                            </span>
+                            <span class="name">
+                                Gravity
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0);" data-sound="so-so-fresh" data-name="So So Fresh">
+                            <span class="icon">
+                                <i class="fa fa-play fa-lg"></i>
+                            </span>
+                            <span class="name">
+                                So So Fresh
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void();" data-sound="iron-man" data-name="Iron Man">
+                            <span class="icon">
+                                <i class="fa fa-play fa-lg"></i>
+                            </span>
+                            <span class="name">
+                                Iron Man
+                            </span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="javascript:void();" data-sound="gravity" data-name="Gravity">
+                            <span class="icon">
+                                <i class="fa fa-play fa-lg"></i>
+                            </span>
+                            <span class="name">
+                                Gravity
+                            </span>
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+<script src="../js/vendor/jquery-1.11.1.min.js"></script>
+
+<script>
+
+
+var audio = new Audio();
+audio.src = 'so-so-fresh.m4a';
+audio.controls = false;
+audio.loop = true;
+audio.autoplay = true;
+var canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
+window.addEventListener("load", initPlayer, false);
+
+function initPlayer(){
+	document.getElementById('audio_box').appendChild(audio);
+	context = new AudioContext();
+	analyser = context.createAnalyser();
+	canvas = document.getElementById('analyser_render');
+	ctx = canvas.getContext('2d');
+	source = context.createMediaElementSource(audio);
+	source.connect(analyser);
+	analyser.connect(context.destination);
+	frameLooper();
+}
+function frameLooper(){
+	window.requestAnimationFrame(frameLooper);
+	fbc_array = new Uint8Array(analyser.frequencyBinCount);
+	analyser.getByteFrequencyData(fbc_array);
+	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctx.fillStyle = '#ffffff';
+	bars = 7;
+	for (var i = 0; i < bars; i++) {
+		bar_x = i * 45;
+		bar_width = 28;
+		bar_height = -(fbc_array[i] / 10 * 5.3);
+		ctx.fillRect(bar_x, canvas.height, bar_width, bar_height);
+	}
+}
+
+    $('.choiseRadio .contenido a').click(function() {
+        var musicName = $(this).data('sound'),
+            radioName = $(this).data('name');
+        audio.setAttribute('src', musicName + '.m4a');
+
+        $('.header .wichStation p span').text(radioName);
+    });
+</script>
+</body>
+</html>
