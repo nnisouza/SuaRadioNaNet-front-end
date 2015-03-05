@@ -16,7 +16,8 @@ body{
     border-color: #ee1847;
 }
 .footer .content p,
-.container .menu ul li a{
+.container .menu ul li a,
+.container .wrapper .novidades #novidadeSlider .item p{
     color: #ee1847;
 }
 .footer .content .socialIcons li a:hover i,
