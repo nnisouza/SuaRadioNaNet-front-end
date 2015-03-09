@@ -1027,3 +1027,8 @@ body{
 #tenList li {
     *zoom: 1;
 }
+
+.voting {
+    width: 250px;
+    height: 250px;
+}
