@@ -1,6 +1,6 @@
 $(document).ready(function() {
     var audio = new Audio();
-    audio.src = 'sound/gravity.m4a';
+    audio.src = 'http://suaradio2.dyndns.ws:10342/stream';
     audio.controls = false;
     audio.loop = true;
     audio.autoplay = true;
@@ -166,7 +166,7 @@ $(document).ready(function() {
     $('.choiseRadio .contenido a').click(function() {
         var musicName = $(this).data('sound'),
             radioName = $(this).data('name');
-        audio.setAttribute('src', 'sound/' + musicName + '.m4a');
+        audio.setAttribute('src', musicName);
 
         $('.header .wichStation p span').text(radioName);
 

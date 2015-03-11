@@ -105,7 +105,7 @@ body{
     color: #fff;
     font-size: 18px;
     text-transform: uppercase;
-    line-height: 14px;
+    line-height: 12px;
     font-weight: 700;
     padding-top: 15px;
 }
@@ -131,6 +131,10 @@ body{
     border-left: 1px solid #d81641;
     border-right: 1px solid #f3577a;
     float: left;
+    -webkit-transform: skewX(-30deg);
+    -moz-transform: skewX(-30deg);
+    -ms-transform: skewX(-30deg);
+    -o-transform: skewX(-30deg);
     transform: skewX(-30deg);
 }
 
@@ -148,11 +152,18 @@ body{
     height: 1px;
     position: absolute;
     width: 5px;
+    -webkit-transition: height 0.3s ease;
+    -moz-transition: height 0.3s ease;
+    -ms-transition: height 0.3s ease;
+    -o-transition: height 0.3s ease;
     transition: height 0.3s ease;
     display: none;
 }
 #bars.playing .bar{
     -webkit-animation: sound 0ms -800ms linear infinite alternate;
+    -moz-animation: sound 0ms -800ms linear infinite alternate;
+    -ms-animation: sound 0ms -800ms linear infinite alternate;
+    -o-animation: sound 0ms -800ms linear infinite alternate;
             animation: sound 0ms -800ms linear infinite alternate;
 }
 
@@ -233,6 +244,10 @@ body{
 }
 .header .watch p i{
     font-size: 2em;
+    -webkit-transform: translateY(5px);
+    -moz-transform: translateY(5px);
+    -ms-transform: translateY(5px);
+    -o-transform: translateY(5px);
     transform: translateY(5px);
     margin-left: 3px;
 }
@@ -266,11 +281,23 @@ body{
     padding: 10px 0;
     border-top: 1px solid #fff;
     -webkit-transform: translateY(-100%);
+    -moz-transform: translateY(-100%);
+    -ms-transform: translateY(-100%);
+    -o-transform: translateY(-100%);
+    transform: translateY(-100%);
 
     -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
 }
 .choiseRadio .contenido.show{
     -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
 }
 .choiseRadio .contenido ul{
     padding: 0;
@@ -279,6 +306,10 @@ body{
     list-style: none;
     position: relative;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 .choiseRadio .contenido ul li{
@@ -337,6 +368,10 @@ body{
     max-width: 90%;
     position: relative;
     left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
     transform: translateX(-50%);
 }
 .container .menu ul li{
@@ -439,6 +474,10 @@ body{
     margin: 0;
 }
 .container .heading .sec3 .socialIcons li a{
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 .container .heading .sec3 .socialIcons li a:hover{
@@ -512,7 +551,7 @@ body{
     height: 160px;
     width: 100%;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 .container .wrapper .novidades h2{
     height: 160px;
@@ -677,7 +716,7 @@ body{
     line-height: 60px;
 }
 .container .wrapper .gallery{
-    margin: 20px 0 10px;
+    margin: 10px 0 10px;
 }
 .container .wrapper .gallery ul{
     padding: 0;
@@ -800,6 +839,10 @@ body{
     color: #fff;
 }
 .footer .content .socialIcons li a i{
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
 
@@ -1031,4 +1074,42 @@ body{
 .voting {
     width: 250px;
     height: 250px;
+}
+
+.popText {
+    width: 410px;
+    height: 125px;
+    position: absolute;
+    top: 50px;
+}
+.popText .popHolder{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: auto;
+
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+.popText .popHolder h3{
+    font-size: 45px;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin: 0;
+    padding: 0;
+    line-height: 45px;
+}
+.popText .popHolder p{
+    color: #fff;
+    font-size: 14px;
+    margin: 0;
+    padding: 0;
 }
