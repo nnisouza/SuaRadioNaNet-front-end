@@ -12,8 +12,9 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/lightbox.css">
         <link rel="stylesheet" href="css/theme.css">
-        <link rel="stylesheet" href="css/grid.css">
+        <link rel="stylesheet" href="css/ticker-style.css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="js/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
         <link href="js/vendor/owl-carousel/owl.theme.css" rel="stylesheet">
@@ -161,6 +162,7 @@
                    <div class="dense d468-60">
                        <p>468 X 60</p>
                    </div>
+                   <div id="weather" class="clearfix"></div>
                </div>
                <div class="sec3">
                     <ul class="socialIcons">
@@ -295,19 +297,29 @@
                         <div class="photos">
                             <ul>
                                 <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                   <a href="img/marcacao/galleryImages/g01/johnny.jpg" data-lightbox="roadtrip">
+                                    <img src="img/marcacao/galleryImages/gi01.jpg" alt="">
+                                    </a>
                                 </li>
                                 <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                   <a href="img/marcacao/galleryImages/g02/01.jpg" data-lightbox="roadtrip">
+                                    <img src="img/marcacao/galleryImages/gi02.jpg" alt="">
+                                    </a>
                                 </li>
                                 <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                   <a href="img/marcacao/galleryImages/g03/348.png" data-lightbox="roadtrip">
+                                    <img src="img/marcacao/galleryImages/gi03.jpg" alt="">
+                                    </a>
                                 </li>
                                 <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                   <a href="img/marcacao/galleryImages/g04/02.jpg" data-lightbox="roadtrip">
+                                    <img src="img/marcacao/galleryImages/gi04.jpg" alt="">
+                                    </a>
                                 </li>
                                 <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
+                                   <a href="img/marcacao/galleryImages/g04/05.jpg" data-lightbox="roadtrip">
+                                    <img src="img/marcacao/galleryImages/gi05.jpg" alt="">
+                                    </a>
                                 </li>
                             </ul>
                             <a href="" class="icon"><i class="fa fa-picture-o fa-2x"></i></a>
@@ -338,6 +350,29 @@
                             <i class="fa fa-bookmark"></i>
                             News
                         </span>
+                        <div class="separator"></div>
+                        <ul id="js-news">
+                            <li class="news-item">
+                                <a href="http://g1.globo.com/bahia/noticia/2015/03/jovem-e-atingida-por-bala-perdida-quando-saia-de-festa-com-irma-na-ba.html">
+                                    Jovem é atingida por bala perdida quando saía de festa com irmã na BA
+                                </a>
+                            </li>
+                            <li class="news-item">
+                                <a href="http://g1.globo.com/rn/rio-grande-do-norte/noticia/2015/03/populacao-queima-pneus-e-interdita-em-natal-pedindo-calcamento.html">
+                                    População queima pneus e interdita via em Natal pedindo calçamento
+                                </a>
+                            </li>
+                            <li class="news-item">
+                                <a href="http://g1.globo.com/bom-dia-brasil/noticia/2015/03/governo-anuncia-medidas-contra-corrupcao-apos-protestos-nas-ruas.html">
+                                    Governo anuncia medidas contra corrupção após protestos nas ruas
+                                </a>
+                            </li>
+                            <li class="news-item">
+                                <a href="http://g1.globo.com/sp/campinas-regiao/noticia/2015/03/blitz-da-lei-seca-autua-6-motoristas-em-duas-avenidas-de-campinas.html">
+                                    Blitz da Lei Seca autua 6 motoristas em duas avenidas de Campinas
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                     <div class="topTen">
                         <ul id="tenList">
@@ -498,10 +533,13 @@
                     <div class="dense d250-250">
                         <p>250x250</p>
                     </div>
-                    <div class="voting">voting widget</div>
+                    <div class="voting">
+                        <h3>Que estilo musical você mais curte?</h3>
+                    </div>
                     <div class="dense d250-250">
                         <p>250x250</p>
                     </div>
+                    <div></div>
                     <div class="dense d250-250">
                         <p>250x250</p>
                     </div>
@@ -591,8 +629,15 @@
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 
+
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
         <script src="js/plugins.js"></script>
         <script src="js/vendor/owl-carousel/owl.carousel.js"></script>
+        <script src="js/vendor/jquery.ticker.js"></script>
+        <script src="js/vendor/lightbox.min.js"></script>
+        <script>
+            $('#js-news').ticker();
+        </script>
         <script src="js/main.js"></script>
     </body>
 </html>

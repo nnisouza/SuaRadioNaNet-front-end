@@ -1,4 +1,96 @@
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800);
+@font-face {
+    font-family: 'weather';
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot');
+    src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.woff') format('woff'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.ttf') format('truetype'),
+         url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/93/artill_clean_icons-webfont.svg#artill_clean_weather_iconsRg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+#weather{
+    overflow: hidden;
+    height: 80px;
+}
+#weather ul{
+    margin: 0;
+    padding: 30px 10px 0 0;
+    float: right;
+}
+#weather ul li{
+    float: left;
+    font-size: 15px;
+    list-style: none;
+    line-height: 50px;
+    margin: 0 3px;
+    font-style: italic;
+}
+#weather ul li.region{
+    font-weight: bold;
+}
+#weather ul li.temp{
+    font-size: 40px;
+    font-weight: 600;
+    font-style: normal;
+}
+#weather ul li i{
+    margin: 0;
+    color: #000;
+    font-family: weather;
+    font-size: 60px;
+    font-style: normal;
+    line-height: 60px;
+    margin-left: 10px;
+}
+#weather ul li i.icon-0:before { content: ":"; }
+#weather ul li i.icon-1:before { content: "p"; }
+#weather ul li i.icon-2:before { content: "S"; }
+#weather ul li i.icon-3:before { content: "Q"; }
+#weather ul li i.icon-4:before { content: "S"; }
+#weather ul li i.icon-5:before { content: "W"; }
+#weather ul li i.icon-6:before { content: "W"; }
+#weather ul li i.icon-7:before { content: "W"; }
+#weather ul li i.icon-8:before { content: "W"; }
+#weather ul li i.icon-9:before { content: "I"; }
+#weather ul li i.icon-10:before { content: "W"; }
+#weather ul li i.icon-11:before { content: "I"; }
+#weather ul li i.icon-12:before { content: "I"; }
+#weather ul li i.icon-13:before { content: "I"; }
+#weather ul li i.icon-14:before { content: "I"; }
+#weather ul li i.icon-15:before { content: "W"; }
+#weather ul li i.icon-16:before { content: "I"; }
+#weather ul li i.icon-17:before { content: "W"; }
+#weather ul li i.icon-18:before { content: "U"; }
+#weather ul li i.icon-19:before { content: "Z"; }
+#weather ul li i.icon-20:before { content: "Z"; }
+#weather ul li i.icon-21:before { content: "Z"; }
+#weather ul li i.icon-22:before { content: "Z"; }
+#weather ul li i.icon-23:before { content: "Z"; }
+#weather ul li i.icon-24:before { content: "E"; }
+#weather ul li i.icon-25:before { content: "E"; }
+#weather ul li i.icon-26:before { content: "3"; }
+#weather ul li i.icon-27:before { content: "a"; }
+#weather ul li i.icon-28:before { content: "A"; }
+#weather ul li i.icon-29:before { content: "a"; }
+#weather ul li i.icon-30:before { content: "A"; }
+#weather ul li i.icon-31:before { content: "6"; }
+#weather ul li i.icon-32:before { content: "1"; }
+#weather ul li i.icon-33:before { content: "6"; }
+#weather ul li i.icon-34:before { content: "1"; }
+#weather ul li i.icon-35:before { content: "W"; }
+#weather ul li i.icon-36:before { content: "1"; }
+#weather ul li i.icon-37:before { content: "S"; }
+#weather ul li i.icon-38:before { content: "S"; }
+#weather ul li i.icon-39:before { content: "S"; }
+#weather ul li i.icon-40:before { content: "M"; }
+#weather ul li i.icon-41:before { content: "W"; }
+#weather ul li i.icon-42:before { content: "I"; }
+#weather ul li i.icon-43:before { content: "W"; }
+#weather ul li i.icon-44:before { content: "a"; }
+#weather ul li i.icon-45:before { content: "S"; }
+#weather ul li i.icon-46:before { content: "U"; }
+#weather ul li i.icon-47:before { content: "S"; }
 
 html,
 button,
@@ -701,6 +793,9 @@ body{
     float: left;
     margin: 10px;
 }
+.container .wrapper .galleryTitle{
+    padding: 10px 0 10px;
+}
 .container .wrapper .galleryTitle .dense{
     float: left;
     margin-left: 20px;
@@ -725,11 +820,13 @@ body{
 }
 .container .wrapper .gallery ul li{
     float: left;
+    height: 125px;
+    width: 125px;
 }
 .container .wrapper .gallery a.icon{
     display: block;
     float: left;
-    height: 124px;
+    height: 125px;
     width: 50px;
     color: #fff;
     text-decoration: none;
@@ -741,13 +838,34 @@ body{
 .container .wrapper .news{
     height: 45px;
 }
+.container .wrapper .news .icon{
+    color: #fff;
+    line-height: 45px;
+    font-weight: bold;
+    padding: 0 20px;
+    float: left;
+}
+.container .wrapper .news .icon i{
+    font-size: 20px;
+}
+.container .wrapper .news .separator{
+      height: 45px;
+  border-left: 1px solid #d81641;
+  border-right: 1px solid #f3577a;
+  float: left;
+  -webkit-transform: skewX(-30deg);
+  -moz-transform: skewX(-30deg);
+  -ms-transform: skewX(-30deg);
+  -o-transform: skewX(-30deg);
+  transform: skewX(-30deg);
+}
 .container .sideBar{
     width: 265px;
     float: left;
 }
 .container .sideBar .dense{
     margin-left: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .horoscopo{
@@ -1074,6 +1192,22 @@ body{
 .voting {
     width: 250px;
     height: 250px;
+    background: #f5f5f5;
+    margin: 10px 5px 10px;
+}
+
+.voting h3{
+    font-size: 16px;
+    color: #21252b;
+    text-align: center;
+    padding: 0 5%;
+    display: block;
+    box-sizing: border-box;
+    font-family: 'Open Sans';
+    margin: 0;
+    padding-top: 20px;
+    line-height: 18px;
+    padding-bottom: 20px;
 }
 
 .popText {

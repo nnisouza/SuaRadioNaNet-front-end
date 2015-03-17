@@ -3,7 +3,7 @@ $(document).ready(function() {
     audio.src = 'http://suaradio2.dyndns.ws:10342/stream';
     audio.controls = false;
     audio.loop = true;
-    audio.autoplay = true;
+    audio.autoplay = false;
     var canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
     window.addEventListener("load", initPlayer, false);
 
@@ -177,4 +177,24 @@ $(document).ready(function() {
         });
 
     });
+
+    $.simpleWeather({
+        woeid: '2357536', //2357536
+        location: 'Pelotas, RS',
+        unit: 'c',
+        success: function(weather) {
+          html = '<ul>';
+          html += '<li>Hoje em </li>';
+          html += '<li class="region">'+weather.city+', '+weather.region+'</li>';
+          html += '<li> <i class="icon-'+weather.code+'"></i></li>';
+          html += '<li class="temp">'+weather.temp+'&deg;</li>';
+          html += '</ul>';
+
+          $("#weather").html(html);
+        },
+        error: function(error) {
+          $("#weather").html('<p>'+error+'</p>');
+        }
+      });
+
 });

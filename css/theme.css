@@ -9,7 +9,12 @@ body{
 .horoscopo,
 .container .wrapper .novidades h2:before,
 .container .wrapper .novidades .newControls:before,
-.container .wrapper .mostPopularArtist .popHead{
+.container .wrapper .mostPopularArtist .popHead,
+.ticker-wrapper.has-js,
+.ticker-title,
+.ticker-content,
+.ticker-swipe,
+.ticker-swipe span{
     background-color: #ee1847;
 }
 .dense,
@@ -22,6 +27,10 @@ body{
     color: #ee1847;
 }
 .footer .content .socialIcons li a:hover i,
+#weather ul li i,
+#weather ul li i,
+#weather ul li.region,
+#weather ul li.temp,
 .container .heading .sec3 .socialIcons li a,
 .dense p{
     color: #ee1847;
