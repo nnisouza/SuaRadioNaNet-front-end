@@ -32,6 +32,9 @@ body{
 #weather ul li.region,
 #weather ul li.temp,
 .container .heading .sec3 .socialIcons li a,
-.dense p{
+.dense p,
+.modal .container .content .contentHolder button#closeModal,
+.modal .container .content .contentHolder h2,
+.modal .container .content .contentHolder .sharing p{
     color: #ee1847;
 }

@@ -12,6 +12,7 @@
 
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/animate.css">
         <link rel="stylesheet" href="css/lightbox.css">
         <link rel="stylesheet" href="css/theme.css">
         <link rel="stylesheet" href="css/ticker-style.css">
@@ -252,31 +253,22 @@
                             </span>
                         </h2>
                         <ul id="novidadeSlider">
-                            <li class="item">
-                                <a href="javascript:void(0);">
+                            <li class="item link">
+                                <a href="javascript:void(0);" data-image="img/marcacao/modal/ozzy.jpg" data-title="Ozzy Osbournese apresenta em Porto Alegre" data-text="A apresentação acontecerá no Monster Tour, festival que acontecerá no dia 30 de abril, no estádio do Zequinha.">
                                     <p>
-                                        David Guetta fala sobre álbum “Listen” e turnê no Brasil
+                                        Ozzy Osbournese apresenta em Porto Alegre
                                     </p>
-                                    <img src="img/marcacao/novidades.jpg" alt="">
+                                    <img src="img/marcacao/modal/ozzy.jpg" alt="">
                                 </a>
                             </li>
-                            <li class="item">
-                                <a href="javascript:void(0);">
+                            <li class="item link">
+                                <a href="javascript:void(0);" data-image="img/marcacao/modal/lorde.jpg" data-title="Lorde vence melhor canção do ano no Grammy" data-text="Estreante no Grammy levou o prêmio de canção do ano na maior premiação da música, que acontece neste domingo (26) em Los Angeles.">
                                     <p>
-                                        David Guetta fala sobre álbum “Listen” e turnê no Brasil
+                                        Lorde vence melhor canção do ano no Grammy
                                     </p>
-                                    <img src="img/marcacao/novidades.jpg" alt="">
+                                    <img src="img/marcacao/modal/lorde.jpg" alt="">
                                 </a>
                             </li>
-                            <li class="item">
-                                <a href="javascript:void(0);">
-                                    <p>
-                                        David Guetta fala sobre álbum “Listen” e turnê no Brasil
-                                    </p>
-                                    <img src="img/marcacao/novidades.jpg" alt="">
-                                </a>
-                            </li>
-
                         </ul>
                         <div class="newControls">
                             <div id="nPrev">
@@ -512,7 +504,9 @@
                             </div>
                         </ul>
                     </div>
-                    <div class="tenTitleLink"></div>
+                    <div class="tenTitleLink">
+                         <a href="#"></a>
+                    </div>
                     <div class="mostPopularArtist">
                         <div class="popHead">
                             <i class="fa fa-star"></i> Artista do mês
@@ -625,6 +619,38 @@
             </div>
         </div>
         
+        <div class="modal">
+            <div class="layer"></div>
+            <div class="container">
+                <div class="content">
+                    <div class="imageHolder" style="background-image: url('img/marcacao/modal/ozzy.jpg'); background-size: cover; background-position: left center;">
+                        <div class="mask"></div>
+                    </div>
+                    <div class="contentHolder">
+                        <button id="closeModal">
+                            <i class="fa fa-times"></i>
+                        </button>
+                        <div class="middler">
+                            <h2>Oops. <br/> Houve um erro.</h2>
+                            <hr/>
+                            <p class="text">--</p>
+                        </div>
+                        <div class="sharing">
+                            <p>
+                                Compartilhar
+                            </p>
+                            <a href="#">
+                                <img src="img/fa-facebook.png" alt="">
+                            </a>
+                            <a href="#">
+                                <img src="img/fa-twitter.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>

@@ -197,4 +197,28 @@ $(document).ready(function() {
         }
       });
 
+    $('#novidadeSlider a').click(function() {
+        var image = $(this).data('image'),
+            title = $(this).data('title'),
+            text = $(this).data('text');
+
+        $('.modal .imageHolder').attr('style', 'background-image: url(' + image + ')');
+        console.log(image);
+        $('.modal .contentHolder h2').text(title);
+        $('.modal .contentHolder p.text').text(text);
+
+
+        $('.modal').fadeIn('fast', function() {
+            $('.modal .imageHolder').addClass('animated fadeInLeft faster');
+            $('.modal .contentHolder').addClass('animated fadeInRight faster');
+        });
+//        $('.modal').addClass('open');
+    });
+    $('#closeModal, .layer').click(function() {
+        $('.modal').fadeOut('fast', function() {
+            $('.modal .imageHolder').addClass('animated fadeInLeft faster');
+            $('.modal .contentHolder').addClass('animated fadeInRight faster');
+        });
+    });
+
 });

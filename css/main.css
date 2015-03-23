@@ -645,6 +645,18 @@ body{
     overflow: hidden;
     margin-bottom: 10px;
 }
+.container .wrapper .novidades .item{
+    height: 160px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.container .wrapper .novidades .item img{
+    max-width: 100%;
+    opacity: 0.4;
+}
 .container .wrapper .novidades h2{
     height: 160px;
     width: 190px;
@@ -876,7 +888,7 @@ body{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    margin: 10px 0;
+    margin: 0 0 10px;
 }
 .horoscopo .horsCtrl{
     position: absolute;
@@ -1135,9 +1147,15 @@ body{
 .tenTitleLink {
     width: 240px;
     height: 270px;
-    background: red;
+    background: url('../img/topTitle.png');
     float: left;
     margin-top: 10px;
+}
+.tenTitleLink a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    background: url('../img/askSound.png');
 }
 #tenList li{
     box-sizing: border-box;
@@ -1246,4 +1264,163 @@ body{
     font-size: 14px;
     margin: 0;
     padding: 0;
+}
+.modal{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    display: none;
+}
+.modal .layer{
+    background: rgba(0,0,0,0.7);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.modal .container{
+    height: 100%;
+    background: transparent;
+    position: relative;
+    padding: 0;
+}
+.modal .container .content{
+    width: 100%;
+    height: 500px;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    background: #fff;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.078);
+    overflow: hidden;
+
+
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.modal .container .content .imageHolder{
+    width: 450px;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+
+    -webkit-transform: translateX(-100%);
+    -moz-transform: translateX(-100%);
+    -ms-transform: translateX(-100%);
+    -o-transform: translateX(-100%);
+    transform: translateX(-100%);
+}
+.modal .container .content .imageHolder img{
+    max-height: 100%;
+    min-height: 100%;
+}
+.modal .container .content .imageHolder.enter{
+    -webkit-transition: all 0.3s ease;
+    -webkit-transform: translateX(0%);
+    -moz-transform: translateX(0%);
+    -ms-transform: translateX(0%);
+    -o-transform: translateX(0%);
+    transform: translateX(0%);
+}
+.modal .container .content .imageHolder .mask{
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    transform-origin: bottom;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    -webkit-transform: skewX(-18deg) translateX(280px);
+    -moz-transform: skewX(-18deg) translateX(280px);
+    -ms-transform: skewX(-18deg) translateX(280px);
+    -o-transform: skewX(-18deg) translateX(280px);
+    transform: skewX(-18deg) translateX(280px);
+}
+.modal .container .content .contentHolder{
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 540px;
+}
+.modal .container .content .contentHolder{
+    width: 450px;
+}
+
+.modal .container .content .contentHolder button#closeModal{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    border: 0;
+    background: transparent;
+    display: block;
+    padding: 0;
+    font-size: 2.5em;
+    line-height: 1em;
+}
+.modal .container .content .contentHolder .middler{
+    box-sizing: border-box;
+    padding: 40px;
+    padding-left: 0;
+
+    position: absolute;
+    top: 50%;
+    right: 0;
+
+    -webkit-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -o-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+.modal .container .content .contentHolder h2{
+    text-align: right;
+    text-transform: uppercase;
+    font-size: 25px;
+}
+.modal .container .content .contentHolder p{
+    font-size: 20px;
+    color: #282828;
+    text-align: right;
+}
+.modal .container .content .contentHolder .sharing{
+    width: 185px;
+    height: 25px;
+    position: absolute;
+    right: 48px;
+    bottom: 28px;
+}
+.modal .container .content .contentHolder .sharing p{
+    width: 110px;
+    height: 13px;
+    font-size: 15px;
+    font-weight: 700;
+    font-style: italic;
+    text-transform: uppercase;
+    margin: 0;
+    line-height: 27px;
+    float: left;
+}
+.modal .container .content .contentHolder .sharing a{
+    text-decoration: none;
+    float: left;
+}
+.modal .container .content .contentHolder .sharing a img{
+    display: block;
+    margin-left: 17px;
 }
