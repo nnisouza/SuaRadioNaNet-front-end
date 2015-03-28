@@ -55,6 +55,10 @@ $(document).ready(function() {
       singleItem: false,
     responsiveRefreshRate : 100,
     afterInit : function(el){
+        var items = el.find(".owl-item"),
+            length = items.length,
+            theWidth = length * items.width();
+        $('#thumbSlider').width(theWidth + 'px');
       el.find(".owl-item").eq(0).addClass("synced");
     }
   });
@@ -203,7 +207,6 @@ $(document).ready(function() {
             text = $(this).data('text');
 
         $('.modal .imageHolder').attr('style', 'background-image: url(' + image + ')');
-        console.log(image);
         $('.modal .contentHolder h2').text(title);
         $('.modal .contentHolder p.text').text(text);
 
@@ -219,6 +222,9 @@ $(document).ready(function() {
             $('.modal .imageHolder').addClass('animated fadeInLeft faster');
             $('.modal .contentHolder').addClass('animated fadeInRight faster');
         });
+    });
+    $('#gearStick').click(function() {
+        $('#gearBox').toggleClass('open');
     });
 
 });

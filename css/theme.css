@@ -14,7 +14,11 @@ body{
 .ticker-title,
 .ticker-content,
 .ticker-swipe,
-.ticker-swipe span{
+.ticker-swipe span,
+.voting #voteMe:before,
+input[type=radio] + label:after,
+.sz-left,
+.sz-right{
     background-color: #ee1847;
 }
 .dense,
