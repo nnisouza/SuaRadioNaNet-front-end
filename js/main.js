@@ -224,7 +224,27 @@ $(document).ready(function() {
         });
     });
     $('#gearStick').click(function() {
-        $('#gearBox').toggleClass('open');
+        $('#gearStick').removeClass('open');
+        setTimeout(function(){
+            $('#gearBox').addClass('open');
+        }, 300);
+    });
+    $('#setStick').click(function() {
+        $('#gearBox').removeClass('open');
+        setTimeout(function(){
+            $('#gearStick').addClass('open');
+        }, 300);
+    });
+
+    $('#gearBox h3').click(function() {
+        var id = $(this).data('tab');
+        if($(this).hasClass('current')) {
+            $(this).removeClass('current');
+            $('.section#' + id).slideUp();
+        } else {
+            $(this).addClass('current');
+            $('.section#' + id).slideDown();
+        }
     });
 
 });

@@ -1559,7 +1559,7 @@ body{
     color: #fff;
     position: fixed;
     top: 70px;
-    right: 0;
+    right: -50px;
     background: #21252b;
     width: 50px;
     height: 50px;
@@ -1568,6 +1568,14 @@ body{
     text-align: center;
     border-radius: 5px 0 0 5px;
     cursor: pointer;
+    -webkit-transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
+    -moz-transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
+    -ms-transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
+    -o-transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
+    transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
+}
+#gearStick.open {
+    right: 0px;
 }
 
 #gearBox {
@@ -1579,9 +1587,45 @@ body{
     right: -350px;
     color: #fff;
 
+    -webkit-transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
+    -moz-transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
+    -ms-transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
+    -o-transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
     transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
 }
 
 #gearBox.open{
     right: 0;
+}
+#gearBox h3{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 40px;
+    text-transform: uppercase;
+    margin: 0;
+    height: 40px;
+    cursor: pointer;
+}
+#gearBox h3 .fa{
+    font-size: 1.7em;
+    float: left;
+    line-height: 40px;
+    margin: 0 8px
+}
+#gearBox .section{
+    display: none;
+}
+#gearBox .separator{
+    border-top: 1px solid #0f1013;
+    border-bottom: 1px solid #383b41;
+}
+#setStick{
+    border: 0;
+    background: transparent;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    color: #fff;
+    outline: 0;
 }

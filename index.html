@@ -13,10 +13,10 @@
         <link rel="stylesheet" href="css/normalize.min.css">
         <link rel="stylesheet" href="css/main.css">
         <link rel="stylesheet" href="css/animate.css">
-        <link rel="stylesheet" href="css/lightbox.css">
         <link rel="stylesheet" href="css/theme.css">
         <link rel="stylesheet" href="css/smoothzoom.css">
         <link rel="stylesheet" href="css/ticker-style.css">
+        <link rel="stylesheet" href="css/jquery.minicolors.css">
         <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
         <link href="js/vendor/owl-carousel/owl.carousel.css" rel="stylesheet">
         <link href="js/vendor/owl-carousel/owl.theme.css" rel="stylesheet">
@@ -29,7 +29,7 @@
             div#player > canvas{ width:65px; height:45px; background:#ee1847; float:left;}
         </style>
     </head>
-    <body>
+    <body ng-app="radio">
 
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
@@ -247,6 +247,14 @@
                             </span>
                         </h2>
                         <ul id="novidadeSlider">
+                            <li class="item link">
+                                <a href="javascript:void(0);" data-image="img/marcacao/modal/ozzy2.jpg" data-title="Black Sabbath anuncia último show da carreira" data-text="A formação original do Black Sabbath se despede dos palcos, desta vez, definitivamente. Este marco na história do Heavy Metal acontecerá no Ozzfest, sediado no Japão.">
+                                    <p>
+                                       Black Sabbath anuncia último show da carreira
+                                    </p>
+                                    <img src="img/marcacao/novidades/ozzy2.jpg" alt="">
+                                </a>
+                            </li>
                             <li class="item link">
                                 <a href="javascript:void(0);" data-image="img/marcacao/modal/ozzy.jpg" data-title="Ozzy Osbournese apresenta em Porto Alegre" data-text="A apresentação acontecerá no Monster Tour, festival que acontecerá no dia 30 de abril, no estádio do Zequinha.">
                                     <p>
@@ -729,25 +737,42 @@
             </div>
         </div>
 
-        <div id="gearStick">
+        <div id="gearStick" class="open">
             <i class="fa fa-cog fa-2x"></i>
         </div>
         <div id="gearBox">
-            <i class="fa fa-cog fa-2x"></i>
+            <button id="setStick"><i class="fa fa-caret-right fa-2x"></i></button>
+            <h3 data-tab="configuracoes">
+                <i class="fa fa-cog fa-2x"></i>
+                Configurações
+            </h3>
+            <div class="separator"></div>
+            <div class="section" id="configuracoes">
+                <input type="text" class="colorPicker">
+                Configuração de cores e favicon
+                <div class="separator"></div>
+            </div>
+            <h3 data-tab="avancado">
+                <i class="fa fa-cog fa-2x"></i>
+                Avançado
+            </h3>
+            <div class="separator"></div>
+            <div class="section" id="avancado">
+                Configuração de Título, Fuso horário, Estado, Cidade, Google Analytics e mais;
+                <div class="separator"></div>
+            </div>
         </div>
 
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
 
-
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.simpleWeather/3.0.2/jquery.simpleWeather.min.js"></script>
         <script type="text/javascript" src="js/vendor/easing.js"></script>
         <script type="text/javascript" src="js/vendor/smoothzoom.min.js"></script>
-        <script src="js/plugins.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery.minicolors.min.js"></script>
         <script src="js/vendor/owl-carousel/owl.carousel.js"></script>
         <script src="js/vendor/jquery.ticker.js"></script>
-        <script src="js/vendor/lightbox.min.js"></script>
         <script>
             $(window).load( function() {
                 $('.galleryImage').smoothZoom({
@@ -755,6 +780,19 @@
                     zoomoutSpeed: '100',
                     closeButton: true,
                     showCaption: false
+                });
+                $('.colorPicker').minicolors({
+                    change: function(hex) {
+                        $('.header,.container .wrapper .gallery a.icon,.container .wrapper .news,.choiseRadio .contenido,.horoscopo,.container .wrapper .novidades h2:before,.container .wrapper .novidades .newControls:before,.container .wrapper .mostPopularArtist .popHead,.ticker-wrapper.has-js,.ticker-title,.ticker-content,.ticker-swipe,.ticker-swipe span,.voting #voteMe:before,input[type=radio] + label:after,.sz-left,.sz-right,#tenList li>span').css({
+                            'background-color': hex
+                        });
+                        $('.dense,.container .menu').css({
+                            'border-color': hex
+                        });
+                        $('.footer .content p,.container .menu ul li a,.container .wrapper .novidades #novidadeSlider .item p,.footer .content .socialIcons li a:hover i,#weather ul li i,#weather ul li i,#weather ul li.region,#weather ul li.temp,.container .heading .sec3 .socialIcons li a,.dense p,.modal .container .content .contentHolder button#closeModal,.modal .container .content .contentHolder h2,.modal .container .content .contentHolder .sharing p').css({
+                            'color': hex
+                        });
+                    }
                 });
             });
             $('#js-news').ticker();

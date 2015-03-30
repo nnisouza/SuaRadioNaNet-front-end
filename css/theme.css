@@ -27,9 +27,7 @@ input[type=radio] + label:after,
 }
 .footer .content p,
 .container .menu ul li a,
-.container .wrapper .novidades #novidadeSlider .item p{
-    color: #ee1847;
-}
+.container .wrapper .novidades #novidadeSlider .item p,
 .footer .content .socialIcons li a:hover i,
 #weather ul li i,
 #weather ul li i,
