@@ -2,42 +2,11 @@ body{
     background: url('../img/marcacao/bg.jpg') no-repeat fixed;
     background-size: cover;
 }
-.header,
-.container .wrapper .gallery a.icon,
-.container .wrapper .news,
-.choiseRadio .contenido,
-.horoscopo,
-.container .wrapper .novidades h2 span.effect,
-.container .wrapper .novidades .newControls span.effect,
-.container .wrapper .mostPopularArtist .popHead,
-.ticker-wrapper.has-js,
-.ticker-title,
-.ticker-content,
-.ticker-swipe,
-.ticker-swipe span,
-.voting #voteMe:before,
-input[type=radio] + label:after,
-.sz-left,
-.sz-right{
-    background-color: #ee1847;
-}
-.dense,
-.container .menu{
-    border-color: #ee1847;
-}
-.footer .content p,
-.container .menu ul li a,
-.container .wrapper .novidades #novidadeSlider .item p,
-.footer .content .socialIcons li a:hover i,
-#weather ul li i,
-#weather ul li i,
-#weather ul li.region,
-#weather ul li.temp,
-.container .heading .sec3 .socialIcons li a,
-.dense p,
-.modal .container .content .contentHolder button#closeModal,
-.modal .container .content .contentHolder h2,
-.modal .container .content .contentHolder .sharing p,
-.container .wrapper .galleryTitle h3{
+.customBG{background-color: #ee1847;}
+
+.customBorder{border-color: #ee1847;}
+
+.customColor,
+.footer .socialIcons li a:hover i{
     color: #ee1847;
 }

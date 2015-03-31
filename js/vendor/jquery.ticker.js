@@ -98,8 +98,8 @@
 				// remove any current content inside this ticker
 				$(settings.dom.wrapperID).children().remove();
 
-				$(settings.dom.wrapperID).append('<div id="' + settings.dom.tickerID.replace('#', '') + '" class="ticker"><div id="' + settings.dom.titleID.replace('#', '') + '" class="ticker-title"><span></span></div><p id="' + settings.dom.contentID.replace('#', '') + '" class="ticker-content"></p><div id="' + settings.dom.revealID.replace('#', '') + '" class="ticker-swipe"><span></span></div></div>');
-				$(settings.dom.wrapperID).removeClass('no-js').addClass('ticker-wrapper has-js ' + opts.direction);
+				$(settings.dom.wrapperID).append('<div id="' + settings.dom.tickerID.replace('#', '') + '" class="ticker"><div id="' + settings.dom.titleID.replace('#', '') + '" class="customBG ticker-title"><span></span></div><p id="' + settings.dom.contentID.replace('#', '') + '" class="customBG ticker-content"></p><div id="' + settings.dom.revealID.replace('#', '') + '" class="customBG ticker-swipe"><span class="customBG"></span></div></div>');
+				$(settings.dom.wrapperID).removeClass('no-js').addClass('customBG ticker-wrapper has-js ' + opts.direction);
 				// hide the ticker
 				$(settings.dom.tickerElem + ',' + settings.dom.contentID).hide();
 				// add the controls to the DOM if required

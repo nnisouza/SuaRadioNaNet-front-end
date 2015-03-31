@@ -40,73 +40,76 @@ $(document).ready(function() {
 
 
 
-  sync1.owlCarousel({
-    singleItem : true,
-    slideSpeed : 200,
-    navigation: false,
-      mouseDrag: false,
-    pagination:false,
-    afterAction : syncPosition,
-    responsiveRefreshRate : 200,
-  });
+    sync1.owlCarousel({
+        singleItem : true,
+        slideSpeed : 200,
+        navigation: false,
+        mouseDrag: false,
+        pagination:false,
+        afterAction : syncPosition,
+        responsiveRefreshRate : 200,
+    });
 
-  sync2.owlCarousel({
-    pagination:false,
-      singleItem: false,
-    responsiveRefreshRate : 100,
-    afterInit : function(el){
-        var items = el.find(".owl-item"),
-            length = items.length,
-            theWidth = length * items.width();
-        $('#thumbSlider').width(theWidth + 'px');
-      el.find(".owl-item").eq(0).addClass("synced");
-    }
-  });
+    sync2.owlCarousel({
+        pagination:false,
+        singleItem: false,
+        responsiveRefreshRate : 100,
+        afterInit : function(el){
+            var items = el.find(".owl-item"),
+                length = items.length,
+                theWidth = length * items.width();
 
-  function syncPosition(el){
-    var current = this.currentItem;
-    $("#thumbSlider")
-      .find(".owl-item")
-      .removeClass("synced")
-      .eq(current)
-      .addClass("synced")
-    if($("#thumbSlider").data("owlCarousel") !== undefined){
-      center(current)
-    }
-  }
-
-  $("#thumbSlider").on("click", ".owl-item", function(e){
-    e.preventDefault();
-    var number = $(this).data("owlItem");
-    sync1.trigger("owl.goTo",number);
-  });
-
-  function center(number){
-    var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
-    var num = number;
-    var found = false;
-    for(var i in sync2visible){
-      if(num === sync2visible[i]){
-        var found = true;
-      }
-    }
-
-    if(found===false){
-      if(num>sync2visible[sync2visible.length-1]){
-        sync2.trigger("owl.goTo", num - sync2visible.length+2)
-      }else{
-        if(num - 1 === -1){
-          num = 0;
+            $('#thumbSlider').width(theWidth + 'px');
+            el.find(".owl-item").eq(0).addClass("synced");
         }
-        sync2.trigger("owl.goTo", num);
-      }
-    } else if(num === sync2visible[sync2visible.length-1]){
-      sync2.trigger("owl.goTo", sync2visible[1])
-    } else if(num === sync2visible[0]){
-      sync2.trigger("owl.goTo", num-1)
+    });
+
+    function syncPosition(el){
+        var current = this.currentItem;
+
+        $("#thumbSlider")
+            .find(".owl-item")
+            .removeClass("synced")
+            .eq(current)
+            .addClass("synced")
+        if($("#thumbSlider").data("owlCarousel") !== undefined){
+            center(current)
+        }
     }
 
-  }
+    $("#thumbSlider").on("click", ".owl-item", function(e){
+        e.preventDefault();
+        var number = $(this).data("owlItem");
+
+        sync1.trigger("owl.goTo",number);
+    });
+
+    function center(number){
+        var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
+        var num = number;
+        var found = false;
+
+        for(var i in sync2visible){
+            if(num === sync2visible[i]){
+                var found = true;
+            }
+        }
+
+        if(found===false){
+            if(num>sync2visible[sync2visible.length-1]){
+                sync2.trigger("owl.goTo", num - sync2visible.length+2)
+            }else{
+                if(num - 1 === -1){
+                    num = 0;
+                }
+                sync2.trigger("owl.goTo", num);
+            }
+        } else if(num === sync2visible[sync2visible.length-1]){
+            sync2.trigger("owl.goTo", sync2visible[1]);
+        } else if(num === sync2visible[0]){
+            sync2.trigger("owl.goTo", num-1);
+        }
+    }
 
 
     $("#novidadeSlider").owlCarousel({
@@ -115,15 +118,15 @@ $(document).ready(function() {
         navigation: false,
         pagination:false,
     });
-
     var newSlider = $("#novidadeSlider").data('owlCarousel');
-
     $('#nPrev').click(function() {
         newSlider.prev();
     })
     $('#nNext').click(function() {
         newSlider.next();
     })
+
+
 
 
     $('#bannerPrev').click(function() {
@@ -134,20 +137,29 @@ $(document).ready(function() {
     })
 
 
+
+
+
+
+
     $('#signos').owlCarousel({
         singleItem : true,
         navigation: false,
         pagination: false
     });
-
     var horoscopo = $("#signos").data('owlCarousel');
-
     $('#signoPrev').click(function() {
         horoscopo.prev();
     })
     $('#signoNext').click(function() {
         horoscopo.next();
     })
+
+
+
+
+
+
 
     $('.header button.play').click(function() {
         $(this).find('i').each(function() {
@@ -170,8 +182,8 @@ $(document).ready(function() {
     $('.choiseRadio .contenido a').click(function() {
         var musicName = $(this).data('sound'),
             radioName = $(this).data('name');
-        audio.setAttribute('src', musicName);
 
+        audio.setAttribute('src', musicName);
         $('.header .wichStation p span').text(radioName);
 
         $('.header button.play').find('i').each(function() {
@@ -189,9 +201,9 @@ $(document).ready(function() {
         success: function(weather) {
           html = '<ul>';
           html += '<li>Hoje em </li>';
-          html += '<li class="region">'+weather.city+', '+weather.region+'</li>';
-          html += '<li> <i class="icon-'+weather.code+'"></i></li>';
-          html += '<li class="temp">'+weather.temp+'&deg;</li>';
+          html += '<li class="region customColor">'+weather.city+', '+weather.region+'</li>';
+          html += '<li> <i class="customColor icon-'+weather.code+'"></i></li>';
+          html += '<li class="temp customColor">'+weather.temp+'&deg;</li>';
           html += '</ul>';
 
           $("#weather").html(html);
@@ -215,7 +227,6 @@ $(document).ready(function() {
             $('.modal .imageHolder').addClass('animated fadeInLeft faster');
             $('.modal .contentHolder').addClass('animated fadeInRight faster');
         });
-//        $('.modal').addClass('open');
     });
     $('#closeModal, .layer').click(function() {
         $('.modal').fadeOut('fast', function() {
@@ -255,20 +266,29 @@ $(document).ready(function() {
     });
     $('.colorPicker').minicolors({
         change: function(hex) {
-            $('.header,.container .wrapper .gallery a.icon,.container .wrapper .news,.choiseRadio .contenido,.horoscopo,.container .wrapper .novidades h2 span.effect,.container .wrapper .novidades .newControls span.effect,.container .wrapper .mostPopularArtist .popHead,.ticker-wrapper.has-js,.ticker-title,.ticker-content,.ticker-swipe,.ticker-swipe span,.voting #voteMe span.effect,.voting .radio-listing span.effect,.sz-left,.sz-right,#tenList li>span').css({
-                'background-color': hex
-            });
-            $('.dense,.container .menu').css({
-                'border-color': hex
-            });
-            $('.footer .content p,.container .menu ul li a,.container .wrapper .novidades #novidadeSlider .item p,.footer .content .socialIcons li a:hover i,#weather ul li i,#weather ul li i,#weather ul li.region,#weather ul li.temp,.container .heading .sec3 .socialIcons li a,.dense p,.modal .container .content .contentHolder button#closeModal,.modal .container .content .contentHolder h2,.modal .container .content .contentHolder .sharing p,.container .wrapper .galleryTitle h3').css({
-                'color': hex
-            });
+            $('.customBG').css({'background-color': hex});
+            $('.customColor').css({'color': hex});
+            $('.dcustomColor').css({'border-color': hex});
         }
     });
-    $('#js-news').ticker();
-});
+    $('.colorPicker').focusin(function() {
+        $(this).addClass('focused');
+    });
+    $('.colorPicker').focusout(function() {
+        $(this).removeClass('focused');
+    });
 
-$(window).load( function() {
-    $('.wrapper').fadeIn('slow')
+    $('.themeColor').click(function() {
+        var soul = $('this').data('soul');
+
+        if(soul == 'dark') {
+            $('body').removeClass('white')
+                     .addClass('dark');
+        } else if(soul == 'white') {
+            $('body').removeClass('dark')
+                     .addClass('white');
+        }
+    });
+
+    $('#js-news').ticker();
 });

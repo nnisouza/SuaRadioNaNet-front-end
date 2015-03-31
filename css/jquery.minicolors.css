@@ -27,6 +27,7 @@
     left: 0;
     right: 0;
     bottom: 0;
+    cursor: pointer;
 }
 
 .minicolors input[type=hidden] + .minicolors-swatch {
@@ -69,6 +70,7 @@
 
 .minicolors-position-left .minicolors-panel {
     left: 0;
+    top: 32px;
 }
 
 .minicolors-with-opacity .minicolors-panel {
@@ -209,8 +211,8 @@
 
 /* Default theme */
 .minicolors-theme-default .minicolors-swatch {
-    top: 5px;
-    left: 5px;
+    top: 4px;
+    left: 4px;
     width: 18px;
     height: 18px;
 }
@@ -223,10 +225,23 @@
     display: inline-block;
 }
 .minicolors-theme-default .minicolors-input {
-    height: 20px;
-    width: auto;
+    height: 24px;
+    width: 0px;
     display: inline-block;
     padding-left: 26px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    cursor: pointer;
+    font-size: 14px;
+
+    -webkit-transition: 0.3s ease;
+    -moz-transition: 0.3s ease;
+    -ms-transition: 0.3s ease;
+    -o-transition: 0.3s ease;
+    transition: 0.3s ease;
+}
+.minicolors-theme-default .minicolors-input.focused {
+    width: 60px;
 }
 .minicolors-theme-default.minicolors-position-right .minicolors-input {
     padding-right: 26px;
