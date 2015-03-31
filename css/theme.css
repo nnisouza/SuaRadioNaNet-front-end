@@ -7,8 +7,8 @@ body{
 .container .wrapper .news,
 .choiseRadio .contenido,
 .horoscopo,
-.container .wrapper .novidades h2:before,
-.container .wrapper .novidades .newControls:before,
+.container .wrapper .novidades h2 span.effect,
+.container .wrapper .novidades .newControls span.effect,
 .container .wrapper .mostPopularArtist .popHead,
 .ticker-wrapper.has-js,
 .ticker-title,
@@ -37,6 +37,7 @@ input[type=radio] + label:after,
 .dense p,
 .modal .container .content .contentHolder button#closeModal,
 .modal .container .content .contentHolder h2,
-.modal .container .content .contentHolder .sharing p{
+.modal .container .content .contentHolder .sharing p,
+.container .wrapper .galleryTitle h3{
     color: #ee1847;
 }

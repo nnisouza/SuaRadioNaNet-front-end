@@ -247,4 +247,28 @@ $(document).ready(function() {
         }
     });
 
+    $('.galleryImage').smoothZoom({
+        zoominSpeed: '100',
+        zoomoutSpeed: '100',
+        closeButton: true,
+        showCaption: false
+    });
+    $('.colorPicker').minicolors({
+        change: function(hex) {
+            $('.header,.container .wrapper .gallery a.icon,.container .wrapper .news,.choiseRadio .contenido,.horoscopo,.container .wrapper .novidades h2 span.effect,.container .wrapper .novidades .newControls span.effect,.container .wrapper .mostPopularArtist .popHead,.ticker-wrapper.has-js,.ticker-title,.ticker-content,.ticker-swipe,.ticker-swipe span,.voting #voteMe span.effect,.voting .radio-listing span.effect,.sz-left,.sz-right,#tenList li>span').css({
+                'background-color': hex
+            });
+            $('.dense,.container .menu').css({
+                'border-color': hex
+            });
+            $('.footer .content p,.container .menu ul li a,.container .wrapper .novidades #novidadeSlider .item p,.footer .content .socialIcons li a:hover i,#weather ul li i,#weather ul li i,#weather ul li.region,#weather ul li.temp,.container .heading .sec3 .socialIcons li a,.dense p,.modal .container .content .contentHolder button#closeModal,.modal .container .content .contentHolder h2,.modal .container .content .contentHolder .sharing p,.container .wrapper .galleryTitle h3').css({
+                'color': hex
+            });
+        }
+    });
+    $('#js-news').ticker();
+});
+
+$(window).load( function() {
+    $('.wrapper').fadeIn('slow')
 });

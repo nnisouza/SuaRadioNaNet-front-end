@@ -26,10 +26,10 @@
 
         <style>
             div#player{ width:65px; height:45px;position: absolute; top:6px;left: 0;}
-            div#player > canvas{ width:65px; height:45px; background:#ee1847; float:left;}
+            div#player > canvas{ width:65px; height:45px; float:left;}
         </style>
     </head>
-    <body ng-app="radio">
+    <body>
 
         <div id="fb-root"></div>
         <script>(function(d, s, id) {
@@ -39,134 +39,656 @@
           js.src = "//connect.facebook.net/pt_BR/sdk.js#xfbml=1&appId=280559398795233&version=v2.0";
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
+        <div class="wrapper" style="">
+            <div class="header">
+                <div class="contenido">
+                    <div class="controls">
+                        <button class="play">
+                            <i class="fa fa-pause fa-lg"></i>
+                        </button>
+                        <div class="wichStation">
+                            <p>
+                                no ar<br/>
+                                <span>
+                                    Sua Rádio
+                                </span>
+                            </p>
+                        </div>
+                        <div id='bars' class="playing">
+                          <div id="player">
+                              <div id="audio_box"></div>
+                              <canvas id="analyser_render"></canvas>
+                          </div>
+                          <div class='bar'></div>
+                          <div class='bar'></div>
+                          <div class='bar'></div>
+                          <div class='bar'></div>
+                          <div class='bar'></div>
+                          <div class='bar'></div>
+                          <div class='bar'></div>
+                        </div>
+                        <button id="changeRadio">
+                            <i class="fa fa-chevron-down fa-2x"></i>
+                        </button>
+                    </div>
 
-        <div class="header">
-            <div class="contenido">
-                <div class="controls">
-                    <button class="play">
-                        <i class="fa fa-pause fa-lg"></i>
-                    </button>
-                    <div class="wichStation">
+                    <div class="separator"></div>
+
+                    <div class="visitor">
                         <p>
-                            no ar<br/>
+                            <i class="fa fa-user"></i>
+                            visitante Nº
                             <span>
-                                Sua Rádio
+                                27543
                             </span>
                         </p>
                     </div>
-                    <div id='bars' class="playing">
-                      <div id="player">
-                          <div id="audio_box"></div>
-                          <canvas id="analyser_render"></canvas>
-                      </div>
-                      <div class='bar'></div>
-                      <div class='bar'></div>
-                      <div class='bar'></div>
-                      <div class='bar'></div>
-                      <div class='bar'></div>
-                      <div class='bar'></div>
-                      <div class='bar'></div>
+
+                    <div class="separator"></div>
+
+                    <div class="watch">
+                        <p>
+                            Assista
+                            <i class="fa fa-desktop"></i>
+                        </p>
                     </div>
-                    <button id="changeRadio">
-                        <i class="fa fa-chevron-down fa-2x"></i>
-                    </button>
+
+                    <div class="separator"></div>
+
+                    <div class="toApp">
+                        <p>
+                            Ouça no
+                            <i class="fa fa-apple fa-2x"></i>
+                            <i class="fa fa-android fa-2x"></i>
+                        </p>
+                    </div>
+
                 </div>
-
-                <div class="separator"></div>
-
-                <div class="visitor">
-                    <p>
-                        <i class="fa fa-user"></i>
-                        visitante Nº
-                        <span>
-                            27543
-                        </span>
-                    </p>
-                </div>
-
-                <div class="separator"></div>
-
-                <div class="watch">
-                    <p>
-                        Assista
-                        <i class="fa fa-desktop"></i>
-                    </p>
-                </div>
-
-                <div class="separator"></div>
-
-                <div class="toApp">
-                    <p>
-                        Ouça no
-                        <i class="fa fa-apple fa-2x"></i>
-                        <i class="fa fa-android fa-2x"></i>
-                    </p>
-                </div>
-
             </div>
-        </div>
-        <div class="choiseRadio">
-            <div class="contenido">
-                <ul class="clearfix">
-                    <li>
-                        <a href="javascript:void();" data-sound="http://suaradio2.dyndns.ws:10342/stream" data-name="Real Streaming">
-                            <span class="icon">
-                                <i class="fa fa-play fa-lg"></i>
-                            </span>
-                            <span class="name">
-                                Real Streaming
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void();" data-sound="sound/so-so-fresh.m4a" data-name="So So Fresh">
-                            <span class="icon">
-                                <i class="fa fa-play fa-lg"></i>
-                            </span>
-                            <span class="name">
-                                So So Fresh
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void();" data-sound="sound/iron-man.m4a" data-name="Iron Man">
-                            <span class="icon">
-                                <i class="fa fa-play fa-lg"></i>
-                            </span>
-                            <span class="name">
-                                Iron Man
-                            </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="javascript:void();" data-sound="sound/living-underground.m4a" data-name="Living Underground">
-                            <span class="icon">
-                                <i class="fa fa-play fa-lg"></i>
-                            </span>
-                            <span class="name">
-                                Living Underground
-                            </span>
-                        </a>
-                    </li>
+            <div class="choiseRadio">
+                <div class="contenido">
+                    <ul class="clearfix">
+                        <li>
+                            <a href="javascript:void();" data-sound="http://suaradio2.dyndns.ws:10342/stream" data-name="Real Streaming">
+                                <span class="icon">
+                                    <i class="fa fa-play fa-lg"></i>
+                                </span>
+                                <span class="name">
+                                    Real Streaming
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();" data-sound="sound/so-so-fresh.m4a" data-name="So So Fresh">
+                                <span class="icon">
+                                    <i class="fa fa-play fa-lg"></i>
+                                </span>
+                                <span class="name">
+                                    So So Fresh
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();" data-sound="sound/iron-man.m4a" data-name="Iron Man">
+                                <span class="icon">
+                                    <i class="fa fa-play fa-lg"></i>
+                                </span>
+                                <span class="name">
+                                    Iron Man
+                                </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();" data-sound="sound/living-underground.m4a" data-name="Living Underground">
+                                <span class="icon">
+                                    <i class="fa fa-play fa-lg"></i>
+                                </span>
+                                <span class="name">
+                                    Living Underground
+                                </span>
+                            </a>
+                        </li>
 
-                </ul>
+                    </ul>
+                </div>
             </div>
-        </div>
-        
-        <div class="container clearfix">
-            <div class="heading clearfix">
-               <div class="sec1">
-                   <div class="logo">
-                       <img src="img/marcacao/logo.png" alt=""/>
+
+            <div class="container clearfix">
+                <div class="heading clearfix">
+                   <div class="sec1">
+                       <div class="logo">
+                           <img src="img/marcacao/logo.png" alt=""/>
+                       </div>
                    </div>
-               </div>
-               <div class="sec2">
-                   <div class="dense d468-60">
-                       <p>468 X 60</p>
+                   <div class="sec2">
+                       <div class="dense d468-60">
+                           <p>468 X 60</p>
+                       </div>
+                       <div id="weather" class="clearfix"></div>
                    </div>
-                   <div id="weather" class="clearfix"></div>
-               </div>
-               <div class="sec3">
+                   <div class="sec3">
+                        <ul class="socialIcons">
+                            <li>
+                                <a href="http://facebook.com/" target="_blank">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://facebook.com/" target="_blank">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://facebook.com/" target="_blank">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="http://facebook.com/" target="_blank">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+
+                        </ul>
+                   </div>
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="">A Rádio</a></li>
+                        <li><a href="">Programação</a></li>
+                        <li><a href="">Promoções</a></li>
+                        <li><a href="">Novidades</a></li>
+                        <li><a href="">Eventos</a></li>
+                        <li><a href="">Galerias</a></li>
+                        <li><a href="">Locutores</a></li>
+                        <li><a href="">Contatos</a></li>
+                    </ul>
+                </div>
+                <div class="slider" id="homeSlider">
+                    <ul id="mainSlider">
+                        <li class="item">
+                            <img src="img/marcacao/banner/banner1.jpg" alt="">
+                            <div class="labelContent">
+                                <span>Participe da promoção e curta este Megashow!</span>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <img src="img/marcacao/banner/banner2.jpg" alt="">
+                            <div class="labelContent">
+                                <span>Participe da promoção e curta este Megashow!</span>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <img src="img/marcacao/banner/banner3.jpg" alt="">
+                            <div class="labelContent">
+                                <span>Participe da promoção e curta este Megashow!</span>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <img src="img/marcacao/banner/banner4.jpg" alt="">
+                            <div class="labelContent">
+                                <span>Participe da promoção e curta este Megashow!</span>
+                            </div>
+                        </li>
+                    </ul>
+                    <ul id="thumbSlider">
+                        <li class="item" style="background: url('img/marcacao/banner/banner1.jpg') center center;background-size: cover;"></li>
+                        <li class="item" style="background: url('img/marcacao/banner/banner2.jpg') center center;background-size: cover;"></li>
+                        <li class="item" style="background: url('img/marcacao/banner/banner3.jpg') center center;background-size: cover;"></li>
+                        <li class="item" style="background: url('img/marcacao/banner/banner4.jpg') center center;background-size: cover;"></li>
+                    </ul>
+                </div>
+                <div class="clearfix">
+                    <div class="wrapper">
+                        <div class="novidades">
+                            <h2>
+                                <span class="effect"></span>
+                                <span>
+                                    novidades
+                                </span>
+                            </h2>
+                            <ul id="novidadeSlider">
+                                <li class="item link">
+                                    <a href="javascript:void(0);" data-image="img/marcacao/modal/ozzy2.jpg" data-title="Black Sabbath anuncia último show da carreira" data-text="A formação original do Black Sabbath se despede dos palcos, desta vez, definitivamente. Este marco na história do Heavy Metal acontecerá no Ozzfest, sediado no Japão.">
+                                        <p>
+                                           Black Sabbath anuncia último show da carreira
+                                        </p>
+                                        <img src="img/marcacao/novidades/ozzy2.jpg" alt="">
+                                    </a>
+                                </li>
+                                <li class="item link">
+                                    <a href="javascript:void(0);" data-image="img/marcacao/modal/ozzy.jpg" data-title="Ozzy Osbournese apresenta em Porto Alegre" data-text="A apresentação acontecerá no Monster Tour, festival que acontecerá no dia 30 de abril, no estádio do Zequinha.">
+                                        <p>
+                                            Ozzy Osbournese apresenta em Porto Alegre
+                                        </p>
+                                        <img src="img/marcacao/novidades/ozzy.jpg" alt="">
+                                    </a>
+                                </li>
+                                <li class="item link">
+                                    <a href="javascript:void(0);" data-image="img/marcacao/modal/lorde.jpg" data-title="Lorde vence melhor canção do ano no Grammy" data-text="Estreante no Grammy levou o prêmio de canção do ano na maior premiação da música, que acontece neste domingo (26) em Los Angeles.">
+                                        <p>
+                                            Lorde vence melhor canção do ano no Grammy
+                                        </p>
+                                        <img src="img/marcacao/novidades/lorde.jpg" alt="">
+                                    </a>
+                                </li>
+                            </ul>
+                            <div class="newControls">
+                                <span class="effect"></span>
+                                <div id="nPrev">
+                                    <i class="fa fa-chevron-left"></i>
+                                </div>
+                                <div id="nNext">
+                                    <i class="fa fa-chevron-right"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="galleryTitle clearfix">
+                            <div class="dense d468-60">
+                                <p>468x60</p>
+                            </div>
+                            <h3>Galeria</h3>
+                        </div>
+                        <div class="gallery clearfix">
+                            <div class="photos">
+                                <ul class="images">
+                                    <li>
+                                       <a href="img/marcacao/galleryImages/g01/johnny.jpg">
+                                        <img src="img/marcacao/galleryImages/gi01.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
+                                        </a>
+                                    </li>
+                                    <li>
+                                       <a href="img/marcacao/galleryImages/g02/01.jpg">
+                                        <img src="img/marcacao/galleryImages/gi02.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
+                                        </a>
+                                    </li>
+                                    <li>
+                                       <a href="img/marcacao/galleryImages/g03/348.png">
+                                        <img src="img/marcacao/galleryImages/gi03.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
+                                        </a>
+                                    </li>
+                                    <li>
+                                       <a href="img/marcacao/galleryImages/g04/02.jpg">
+                                        <img src="img/marcacao/galleryImages/gi04.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
+                                        </a>
+                                    </li>
+                                    <li>
+                                       <a href="img/marcacao/galleryImages/g04/05.jpg">
+                                        <img src="img/marcacao/galleryImages/gi05.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
+                                        </a>
+                                    </li>
+                                </ul>
+                                <a href="" class="icon"><i class="fa fa-picture-o fa-2x"></i></a>
+                            </div>
+                            <div class="videos">
+                                <ul>
+                                    <li>
+                                        <img src="img/marcacao/lordi.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="img/marcacao/lordi.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="img/marcacao/lordi.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="img/marcacao/lordi.jpg" alt="">
+                                    </li>
+                                    <li>
+                                        <img src="img/marcacao/lordi.jpg" alt="">
+                                    </li>
+                                </ul>
+                                <a href="" class="icon"><i class="fa fa-video-camera fa-2x"></i></a>
+                            </div>
+                        </div>
+                        <div class="news">
+                            <span class="icon">
+                                <i class="fa fa-bookmark"></i>
+                                News
+                            </span>
+                            <div class="separator"></div>
+                            <ul id="js-news">
+                                <li class="news-item">
+                                    <a href="http://g1.globo.com/bahia/noticia/2015/03/jovem-e-atingida-por-bala-perdida-quando-saia-de-festa-com-irma-na-ba.html">
+                                        Jovem é atingida por bala perdida quando saía de festa com irmã na BA
+                                    </a>
+                                </li>
+                                <li class="news-item">
+                                    <a href="http://g1.globo.com/rn/rio-grande-do-norte/noticia/2015/03/populacao-queima-pneus-e-interdita-em-natal-pedindo-calcamento.html">
+                                        População queima pneus e interdita via em Natal pedindo calçamento
+                                    </a>
+                                </li>
+                                <li class="news-item">
+                                    <a href="http://g1.globo.com/bom-dia-brasil/noticia/2015/03/governo-anuncia-medidas-contra-corrupcao-apos-protestos-nas-ruas.html">
+                                        Governo anuncia medidas contra corrupção após protestos nas ruas
+                                    </a>
+                                </li>
+                                <li class="news-item">
+                                    <a href="http://g1.globo.com/sp/campinas-regiao/noticia/2015/03/blitz-da-lei-seca-autua-6-motoristas-em-duas-avenidas-de-campinas.html">
+                                        Blitz da Lei Seca autua 6 motoristas em duas avenidas de Campinas
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="topTen">
+                            <ul id="tenList">
+                                <div class="half">
+                                    <li class="first">
+                                        <span>1</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span>2</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span>3</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span>4</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span>5</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                </div>
+                                <div class="half">
+                                    <li>
+                                        <span>6</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span>7</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span>8</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span>9</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <span>10</span>
+                                        <p>
+                                            <span class="musicName">
+                                                Stay With Me
+                                            </span>
+                                            <br/>
+                                            <i class="fa fa-chevron-right"></i>
+                                            <span class="artistName">
+                                                Sam Smith
+                                            </span>
+                                        </p>
+                                    </li>
+                                </div>
+                            </ul>
+                        </div>
+                        <div class="tenTitleLink">
+                             <a href="#"></a>
+                        </div>
+                        <div class="mostPopularArtist">
+                            <div class="popHead">
+                                <i class="fa fa-star"></i> Artista do mês
+                            </div>
+                            <div class="popText">
+                                <div class="popHolder">
+                                    <h3>Magic!</h3>
+                                    <p>Banda tocou pela primeira vez no Brasil no palco do SPMF.</p>
+                                </div>
+                            </div>
+                            <div class="imageHolder">
+                                <img src="img/marcacao/popArt.png" alt="">
+                            </div>
+                            sdasdasd
+                        </div>
+                    </div>
+                    <div class="sideBar">
+                        <div class="dense d250-250">
+                            <p>250x250</p>
+                        </div>
+                        <div class="voting">
+                            <h3>Que estilo musical você mais curte?</h3>
+                            <form action="">
+                                <div class="radio-group">
+                                    <div class="radio-listing">
+                                        <span class="effect"></span>
+                                        <input type="radio" name="vote" value="01" id="vote01"/>
+                                        <label for="vote01">Rock</label>
+                                    </div>
+                                    <div class="radio-listing">
+                                        <span class="effect"></span>
+                                        <input type="radio" name="vote" value="02" id="vote02"/>
+                                        <label for="vote02">Pop</label>
+                                    </div>
+                                    <div class="radio-listing">
+                                        <span class="effect"></span>
+                                        <input type="radio" name="vote" value="03" id="vote03"/>
+                                        <label for="vote03">Pagode</label>
+                                    </div>
+                                    <div class="radio-listing">
+                                        <span class="effect"></span>
+                                        <input type="radio" name="vote" value="04" id="vote04"/>
+                                        <label for="vote04">Sertanejo</label>
+                                    </div>
+                                    <div class="radio-listing">
+                                        <span class="effect"></span>
+                                        <input type="radio" name="vote" value="05" id="vote05"/>
+                                        <label for="vote05">Funk</label>
+                                    </div>
+                                </div>
+                                <button type="submit" id="voteMe">
+                                    <span class="effect"></span>
+                                    <span class="text">
+                                        Votar
+                                    </span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="dense d250-250">
+                            <p>250x250</p>
+                        </div>
+                        <div></div>
+                        <div class="dense d250-250">
+                            <p>250x250</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="horoscopo">
+                    <ul id="signos">
+                        <li>
+                            <div class="leftSign">
+                                <i class="fa fa-mars fa-2x"></i>
+                                <div class="nameSign">Aquário</div>
+                            </div>
+                            <div class="rightSign">
+                                Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="leftSign">
+                                <i class="fa fa-mars fa-2x"></i>
+                                <div class="nameSign">Aquário</div>
+                            </div>
+                            <div class="rightSign">
+                                Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="leftSign">
+                                <i class="fa fa-mars fa-2x"></i>
+                                <div class="nameSign">Aquário</div>
+                            </div>
+                            <div class="rightSign">
+                                Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="leftSign">
+                                <i class="fa fa-mars fa-2x"></i>
+                                <div class="nameSign">Aquário</div>
+                            </div>
+                            <div class="rightSign">
+                                Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="leftSign">
+                                <i class="fa fa-mars fa-2x"></i>
+                                <div class="nameSign">Aquário</div>
+                            </div>
+                            <div class="rightSign">
+                                Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="leftSign">
+                                <i class="fa fa-mars fa-2x"></i>
+                                <div class="nameSign">Aquário</div>
+                            </div>
+                            <div class="rightSign">
+                                Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
+                            </div>
+                        </li>
+                        <li>
+                            <div class="leftSign">
+                                <i class="fa fa-mars fa-2x"></i>
+                                <div class="nameSign">Aquário</div>
+                            </div>
+                            <div class="rightSign">
+                                Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
+                            </div>
+                        </li>
+
+                    </ul>
+                    <div id="signoPrev" class="horsCtrl">
+                        <i class="fa fa-chevron-left fa-2x"></i>
+                    </div>
+                    <div id="signoNext" class="horsCtrl">
+                        <i class="fa fa-chevron-right fa-2x"></i>
+                    </div>
+                </div>
+
+                <div class="soundcloud">
+                    <center>
+                        soundcloud
+                    </center>
+    <!--                <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/6032749&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>-->
+                </div>
+                <div class="clearfix threeBlocksAsside">
+                    <div class="dense d300-300">
+                        <p>300x300</p>
+                    </div>
+                    <div class="dense d300-300">
+                        <p>300x300</p>
+                    </div>
+                    <div class="dense d300-300">
+                        <p>300x300</p>
+                    </div>
+                </div>
+                <div class="facebookBlock">
+                    <center>
+                    Facebook
+    <!--                    <div class="fb-like-box" data-href="https://www.facebook.com/nicovega" data-width="920" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>-->
+                    </center>
+                </div>
+                <div class="dense d728-90">
+                    <p>728x90</p>
+                </div>
+            </div>
+            <div class="footer">
+                <div class="content">
+                    <p>
+                        Todos os Direitos Reservados ®<br/>
+                        <a href="http://suaradionanet.com/" target="_blank">
+                            <span>suaradionanet</span>.com
+                        </a>
+                    </p>
                     <ul class="socialIcons">
                         <li>
                             <a href="http://facebook.com/" target="_blank">
@@ -190,576 +712,65 @@
                         </li>
 
                     </ul>
-               </div>
-            </div>
-            <div class="menu">
-                <ul>
-                    <li><a href="">A Rádio</a></li>
-                    <li><a href="">Programação</a></li>
-                    <li><a href="">Promoções</a></li>
-                    <li><a href="">Novidades</a></li>
-                    <li><a href="">Eventos</a></li>
-                    <li><a href="">Galerias</a></li>
-                    <li><a href="">Locutores</a></li>
-                    <li><a href="">Contatos</a></li>
-                </ul>
-            </div>
-            <div class="slider" id="homeSlider">
-                <ul id="mainSlider">
-                    <li class="item">
-                        <img src="img/marcacao/banner/banner1.jpg" alt="">
-                        <div class="labelContent">
-                            <span>Participe da promoção e curta este Megashow!</span>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <img src="img/marcacao/banner/banner2.jpg" alt="">
-                        <div class="labelContent">
-                            <span>Participe da promoção e curta este Megashow!</span>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <img src="img/marcacao/banner/banner3.jpg" alt="">
-                        <div class="labelContent">
-                            <span>Participe da promoção e curta este Megashow!</span>
-                        </div>
-                    </li>
-                    <li class="item">
-                        <img src="img/marcacao/banner/banner4.jpg" alt="">
-                        <div class="labelContent">
-                            <span>Participe da promoção e curta este Megashow!</span>
-                        </div>
-                    </li>
-                </ul>
-                <ul id="thumbSlider">
-                    <li class="item" style="background: url('img/marcacao/banner/banner1.jpg') center center;background-size: cover;"></li>
-                    <li class="item" style="background: url('img/marcacao/banner/banner2.jpg') center center;background-size: cover;"></li>
-                    <li class="item" style="background: url('img/marcacao/banner/banner3.jpg') center center;background-size: cover;"></li>
-                    <li class="item" style="background: url('img/marcacao/banner/banner4.jpg') center center;background-size: cover;"></li>
-                </ul>
-            </div>
-            <div class="clearfix">
-                <div class="wrapper">
-                    <div class="novidades">
-                        <h2>
-                            <span>
-                                novidades
-                            </span>
-                        </h2>
-                        <ul id="novidadeSlider">
-                            <li class="item link">
-                                <a href="javascript:void(0);" data-image="img/marcacao/modal/ozzy2.jpg" data-title="Black Sabbath anuncia último show da carreira" data-text="A formação original do Black Sabbath se despede dos palcos, desta vez, definitivamente. Este marco na história do Heavy Metal acontecerá no Ozzfest, sediado no Japão.">
-                                    <p>
-                                       Black Sabbath anuncia último show da carreira
-                                    </p>
-                                    <img src="img/marcacao/novidades/ozzy2.jpg" alt="">
-                                </a>
-                            </li>
-                            <li class="item link">
-                                <a href="javascript:void(0);" data-image="img/marcacao/modal/ozzy.jpg" data-title="Ozzy Osbournese apresenta em Porto Alegre" data-text="A apresentação acontecerá no Monster Tour, festival que acontecerá no dia 30 de abril, no estádio do Zequinha.">
-                                    <p>
-                                        Ozzy Osbournese apresenta em Porto Alegre
-                                    </p>
-                                    <img src="img/marcacao/novidades/ozzy.jpg" alt="">
-                                </a>
-                            </li>
-                            <li class="item link">
-                                <a href="javascript:void(0);" data-image="img/marcacao/modal/lorde.jpg" data-title="Lorde vence melhor canção do ano no Grammy" data-text="Estreante no Grammy levou o prêmio de canção do ano na maior premiação da música, que acontece neste domingo (26) em Los Angeles.">
-                                    <p>
-                                        Lorde vence melhor canção do ano no Grammy
-                                    </p>
-                                    <img src="img/marcacao/novidades/lorde.jpg" alt="">
-                                </a>
-                            </li>
-                        </ul>
-                        <div class="newControls">
-                            <div id="nPrev">
-                                <i class="fa fa-chevron-left"></i>
-                            </div>
-                            <div id="nNext">
-                                <i class="fa fa-chevron-right"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="galleryTitle clearfix">
-                        <div class="dense d468-60">
-                            <p>468x60</p>
-                        </div>
-                        <h3>Galeria</h3>
-                    </div>
-                    <div class="gallery clearfix">
-                        <div class="photos">
-                            <ul class="images">
-                                <li>
-                                   <a href="img/marcacao/galleryImages/g01/johnny.jpg">
-                                    <img src="img/marcacao/galleryImages/gi01.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
-                                    </a>
-                                </li>
-                                <li>
-                                   <a href="img/marcacao/galleryImages/g02/01.jpg">
-                                    <img src="img/marcacao/galleryImages/gi02.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
-                                    </a>
-                                </li>
-                                <li>
-                                   <a href="img/marcacao/galleryImages/g03/348.png">
-                                    <img src="img/marcacao/galleryImages/gi03.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
-                                    </a>
-                                </li>
-                                <li>
-                                   <a href="img/marcacao/galleryImages/g04/02.jpg">
-                                    <img src="img/marcacao/galleryImages/gi04.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
-                                    </a>
-                                </li>
-                                <li>
-                                   <a href="img/marcacao/galleryImages/g04/05.jpg">
-                                    <img src="img/marcacao/galleryImages/gi05.jpg" alt="" data-smoothzoom="group2" class="galleryImage">
-                                    </a>
-                                </li>
-                            </ul>
-                            <a href="" class="icon"><i class="fa fa-picture-o fa-2x"></i></a>
-                        </div>
-                        <div class="videos">
-                            <ul>
-                                <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
-                                </li>
-                                <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
-                                </li>
-                                <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
-                                </li>
-                                <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
-                                </li>
-                                <li>
-                                    <img src="img/marcacao/lordi.jpg" alt="">
-                                </li>
-                            </ul>
-                            <a href="" class="icon"><i class="fa fa-video-camera fa-2x"></i></a>
-                        </div>
-                    </div>
-                    <div class="news">
-                        <span class="icon">
-                            <i class="fa fa-bookmark"></i>
-                            News
-                        </span>
-                        <div class="separator"></div>
-                        <ul id="js-news">
-                            <li class="news-item">
-                                <a href="http://g1.globo.com/bahia/noticia/2015/03/jovem-e-atingida-por-bala-perdida-quando-saia-de-festa-com-irma-na-ba.html">
-                                    Jovem é atingida por bala perdida quando saía de festa com irmã na BA
-                                </a>
-                            </li>
-                            <li class="news-item">
-                                <a href="http://g1.globo.com/rn/rio-grande-do-norte/noticia/2015/03/populacao-queima-pneus-e-interdita-em-natal-pedindo-calcamento.html">
-                                    População queima pneus e interdita via em Natal pedindo calçamento
-                                </a>
-                            </li>
-                            <li class="news-item">
-                                <a href="http://g1.globo.com/bom-dia-brasil/noticia/2015/03/governo-anuncia-medidas-contra-corrupcao-apos-protestos-nas-ruas.html">
-                                    Governo anuncia medidas contra corrupção após protestos nas ruas
-                                </a>
-                            </li>
-                            <li class="news-item">
-                                <a href="http://g1.globo.com/sp/campinas-regiao/noticia/2015/03/blitz-da-lei-seca-autua-6-motoristas-em-duas-avenidas-de-campinas.html">
-                                    Blitz da Lei Seca autua 6 motoristas em duas avenidas de Campinas
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="topTen">
-                        <ul id="tenList">
-                            <div class="half">
-                                <li class="first">
-                                    <span>1</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <span>2</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <span>3</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <span>4</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <span>5</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                            </div>
-                            <div class="half">
-                                <li>
-                                    <span>6</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <span>7</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <span>8</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <span>9</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                                <li>
-                                    <span>10</span>
-                                    <p>
-                                        <span class="musicName">
-                                            Stay With Me
-                                        </span>
-                                        <br/>
-                                        <i class="fa fa-chevron-right"></i>
-                                        <span class="artistName">
-                                            Sam Smith
-                                        </span>
-                                    </p>
-                                </li>
-                            </div>
-                        </ul>
-                    </div>
-                    <div class="tenTitleLink">
-                         <a href="#"></a>
-                    </div>
-                    <div class="mostPopularArtist">
-                        <div class="popHead">
-                            <i class="fa fa-star"></i> Artista do mês
-                        </div>
-                        <div class="popText">
-                            <div class="popHolder">
-                                <h3>Magic!</h3>
-                                <p>Banda tocou pela primeira vez no Brasil no palco do SPMF.</p>
-                            </div>
-                        </div>
-                        <div class="imageHolder">
-                            <img src="img/marcacao/popArt.png" alt="">
-                        </div>
-                        sdasdasd
-                    </div>
                 </div>
-                <div class="sideBar">
-                    <div class="dense d250-250">
-                        <p>250x250</p>
-                    </div>
-                    <div class="voting">
-                        <h3>Que estilo musical você mais curte?</h3>
-                        <form action="">
-                            <div class="radio-group">
-                                <div class="radio-listing">
-                                    <input type="radio" name="vote" value="01" id="vote01"/>
-                                    <label for="vote01">Rock</label>
-                                </div>
-                                <div class="radio-listing">
-                                    <input type="radio" name="vote" value="02" id="vote02"/>
-                                    <label for="vote02">Pop</label>
-                                </div>
-                                <div class="radio-listing">
-                                    <input type="radio" name="vote" value="03" id="vote03"/>
-                                    <label for="vote03">Pagode</label>
-                                </div>
-                                <div class="radio-listing">
-                                    <input type="radio" name="vote" value="04" id="vote04"/>
-                                    <label for="vote04">Sertanejo</label>
-                                </div>
-                                <div class="radio-listing">
-                                    <input type="radio" name="vote" value="05" id="vote05"/>
-                                    <label for="vote05">Funk</label>
-                                </div>
-                            </div>
-                            <button type="submit" id="voteMe">
-                                <span>
-                                    Votar
-                                </span>
+            </div>
+
+            <div class="modal">
+                <div class="layer"></div>
+                <div class="container">
+                    <div class="content">
+                        <div class="imageHolder" style="background-image: url('img/marcacao/modal/ozzy.jpg'); background-size: cover; background-position: left center;">
+                            <div class="mask"></div>
+                        </div>
+                        <div class="contentHolder">
+                            <button id="closeModal">
+                                <i class="fa fa-times"></i>
                             </button>
-                        </form>
-                    </div>
-                    <div class="dense d250-250">
-                        <p>250x250</p>
-                    </div>
-                    <div></div>
-                    <div class="dense d250-250">
-                        <p>250x250</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="horoscopo">
-                <ul id="signos">
-                    <li>
-                        <div class="leftSign">
-                            <i class="fa fa-mars fa-2x"></i>
-                            <div class="nameSign">Aquário</div>
-                        </div>
-                        <div class="rightSign">
-                            Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
-                        </div>
-                    </li>
-                    <li>
-                        <div class="leftSign">
-                            <i class="fa fa-mars fa-2x"></i>
-                            <div class="nameSign">Aquário</div>
-                        </div>
-                        <div class="rightSign">
-                            Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
-                        </div>
-                    </li>
-                    <li>
-                        <div class="leftSign">
-                            <i class="fa fa-mars fa-2x"></i>
-                            <div class="nameSign">Aquário</div>
-                        </div>
-                        <div class="rightSign">
-                            Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
-                        </div>
-                    </li>
-                    <li>
-                        <div class="leftSign">
-                            <i class="fa fa-mars fa-2x"></i>
-                            <div class="nameSign">Aquário</div>
-                        </div>
-                        <div class="rightSign">
-                            Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
-                        </div>
-                    </li>
-                    <li>
-                        <div class="leftSign">
-                            <i class="fa fa-mars fa-2x"></i>
-                            <div class="nameSign">Aquário</div>
-                        </div>
-                        <div class="rightSign">
-                            Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
-                        </div>
-                    </li>
-                    <li>
-                        <div class="leftSign">
-                            <i class="fa fa-mars fa-2x"></i>
-                            <div class="nameSign">Aquário</div>
-                        </div>
-                        <div class="rightSign">
-                            Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
-                        </div>
-                    </li>
-                    <li>
-                        <div class="leftSign">
-                            <i class="fa fa-mars fa-2x"></i>
-                            <div class="nameSign">Aquário</div>
-                        </div>
-                        <div class="rightSign">
-                            Importantes demandas emocionais e profissionais aos aquarianos. Momento em que deve agir com mais consciência em seu cotidiano. É hora de estar ciente de suas limitações emocionais, aquariano.
-                        </div>
-                    </li>
-
-                </ul>
-                <div id="signoPrev" class="horsCtrl">
-                    <i class="fa fa-chevron-left fa-2x"></i>
-                </div>
-                <div id="signoNext" class="horsCtrl">
-                    <i class="fa fa-chevron-right fa-2x"></i>
-                </div>
-            </div>
-
-            <div class="soundcloud">
-            soundcloud
-<!--                <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/6032749&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>-->
-            </div>
-            <div class="clearfix threeBlocksAsside">
-                <div class="dense d300-300">
-                    <p>300x300</p>
-                </div>
-                <div class="dense d300-300">
-                    <p>300x300</p>
-                </div>
-                <div class="dense d300-300">
-                    <p>300x300</p>
-                </div>
-            </div>
-            <div class="facebookBlock">
-                <center>
-                Facebook
-<!--                    <div class="fb-like-box" data-href="https://www.facebook.com/nicovega" data-width="920" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>-->
-                </center>
-            </div>
-            <div class="dense d728-90">
-                <p>728x90</p>
-            </div>
-        </div>
-        <div class="footer">
-            <div class="content">
-                <p>
-                    Todos os Direitos Reservados ®<br/>
-                    <a href="http://suaradionanet.com/" target="_blank">
-                        <span>suaradionanet</span>.com
-                    </a>
-                </p>
-                <ul class="socialIcons">
-                    <li>
-                        <a href="http://facebook.com/" target="_blank">
-                            <i class="fa fa-facebook"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://facebook.com/" target="_blank">
-                            <i class="fa fa-google-plus"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://facebook.com/" target="_blank">
-                            <i class="fa fa-twitter"></i>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="http://facebook.com/" target="_blank">
-                            <i class="fa fa-instagram"></i>
-                        </a>
-                    </li>
-
-                </ul>
-            </div>
-        </div>
-        
-        <div class="modal">
-            <div class="layer"></div>
-            <div class="container">
-                <div class="content">
-                    <div class="imageHolder" style="background-image: url('img/marcacao/modal/ozzy.jpg'); background-size: cover; background-position: left center;">
-                        <div class="mask"></div>
-                    </div>
-                    <div class="contentHolder">
-                        <button id="closeModal">
-                            <i class="fa fa-times"></i>
-                        </button>
-                        <div class="middler">
-                            <h2>Oops. <br/> Houve um erro.</h2>
-                            <hr/>
-                            <p class="text">--</p>
-                        </div>
-                        <div class="sharing">
-                            <p>
-                                Compartilhar
-                            </p>
-                            <a href="#">
-                                <img src="img/fa-facebook.png" alt="">
-                            </a>
-                            <a href="#">
-                                <img src="img/fa-twitter.png" alt="">
-                            </a>
+                            <div class="middler">
+                                <h2>Oops. <br/> Houve um erro.</h2>
+                                <hr/>
+                                <p class="text">--</p>
+                            </div>
+                            <div class="sharing">
+                                <p>
+                                    Compartilhar
+                                </p>
+                                <a href="#">
+                                    <img src="img/fa-facebook.png" alt="">
+                                </a>
+                                <a href="#">
+                                    <img src="img/fa-twitter.png" alt="">
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div id="gearStick" class="open">
-            <i class="fa fa-cog fa-2x"></i>
-        </div>
-        <div id="gearBox">
-            <button id="setStick"><i class="fa fa-caret-right fa-2x"></i></button>
-            <h3 data-tab="configuracoes">
+            <div id="gearStick" class="open">
                 <i class="fa fa-cog fa-2x"></i>
-                Configurações
-            </h3>
-            <div class="separator"></div>
-            <div class="section" id="configuracoes">
-                <input type="text" class="colorPicker">
-                Configuração de cores e favicon
-                <div class="separator"></div>
             </div>
-            <h3 data-tab="avancado">
-                <i class="fa fa-cog fa-2x"></i>
-                Avançado
-            </h3>
-            <div class="separator"></div>
-            <div class="section" id="avancado">
-                Configuração de Título, Fuso horário, Estado, Cidade, Google Analytics e mais;
+            <div id="gearBox">
+                <button id="setStick"><i class="fa fa-caret-right fa-2x"></i></button>
+                <h3 data-tab="configuracoes">
+                    <i class="fa fa-cog fa-2x"></i>
+                    Configurações
+                </h3>
                 <div class="separator"></div>
+                <div class="section" id="configuracoes">
+                    <input type="text" class="colorPicker">
+                    Configuração de cores e favicon
+                    <div class="separator"></div>
+                </div>
+                <h3 data-tab="avancado">
+                    <i class="fa fa-cog fa-2x"></i>
+                    Avançado
+                </h3>
+                <div class="separator"></div>
+                <div class="section" id="avancado">
+                    Configuração de Título, Fuso horário, Estado, Cidade, Google Analytics e mais;
+                    <div class="separator"></div>
+                </div>
             </div>
         </div>
 
@@ -774,28 +785,7 @@
         <script src="js/vendor/owl-carousel/owl.carousel.js"></script>
         <script src="js/vendor/jquery.ticker.js"></script>
         <script>
-            $(window).load( function() {
-                $('.galleryImage').smoothZoom({
-                    zoominSpeed: '100',
-                    zoomoutSpeed: '100',
-                    closeButton: true,
-                    showCaption: false
-                });
-                $('.colorPicker').minicolors({
-                    change: function(hex) {
-                        $('.header,.container .wrapper .gallery a.icon,.container .wrapper .news,.choiseRadio .contenido,.horoscopo,.container .wrapper .novidades h2:before,.container .wrapper .novidades .newControls:before,.container .wrapper .mostPopularArtist .popHead,.ticker-wrapper.has-js,.ticker-title,.ticker-content,.ticker-swipe,.ticker-swipe span,.voting #voteMe:before,input[type=radio] + label:after,.sz-left,.sz-right,#tenList li>span').css({
-                            'background-color': hex
-                        });
-                        $('.dense,.container .menu').css({
-                            'border-color': hex
-                        });
-                        $('.footer .content p,.container .menu ul li a,.container .wrapper .novidades #novidadeSlider .item p,.footer .content .socialIcons li a:hover i,#weather ul li i,#weather ul li i,#weather ul li.region,#weather ul li.temp,.container .heading .sec3 .socialIcons li a,.dense p,.modal .container .content .contentHolder button#closeModal,.modal .container .content .contentHolder h2,.modal .container .content .contentHolder .sharing p').css({
-                            'color': hex
-                        });
-                    }
-                });
-            });
-            $('#js-news').ticker();
+
         </script>
         <script src="js/main.js"></script>
     </body>
