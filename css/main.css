@@ -153,7 +153,7 @@ textarea {
 
 
 /* ==========================================================================
-   Author's custom styles
+   Gigio's custom mtrfkn' CSS
    ========================================================================== */
 html{
     width: 100%;
@@ -163,6 +163,30 @@ body{
     width: 100%;
     height: 100%;
 }
+
+.glock{
+    width: 100%;
+    position: relative;
+}
+.glock .g50,
+.glock .g25{
+    float: left;
+    padding: 0 15px;
+    box-sizing: border-box;
+}
+.glock .g50{width: 50%}
+.glock .g25{width: 25%}
+.glock .right{
+    float: right;
+}
+.glock .first{
+    padding-left: 0;
+}
+.glock .last{
+    padding-right: 0;
+}
+
+
 .header{
     position: fixed;
     top: 0;
@@ -183,6 +207,10 @@ body{
     float: left;
     margin-top: 6px;
 }
+.dark .header .controls button.play{
+    border-color: #21252b;
+    color: #21252b;
+}
 .header .controls button.play i{
     font-size: 13px;
 }
@@ -200,6 +228,9 @@ body{
     font-weight: 700;
     padding-top: 15px;
 }
+.dark .header .controls .wichStation p{
+    color: #21252b;
+}
 .header .controls .wichStation p span{
     text-transform: none;
     font-size: 12px;
@@ -216,6 +247,9 @@ body{
     height: 60px;
     font-size: 0.8em;
     outline: none;
+}
+.dark .header .controls button#changeRadio{
+    color: #21252b;
 }
 .header .separator{
     height: 60px;
@@ -311,12 +345,14 @@ body{
     text-align: center;
     color: #fff;
 }
+.dark .header .visitor p{
+    color: #21252b;
+}
 .header .visitor span{
     font-weight: 700;
 }
 .header .visitor i,
 .header .visitor span{
-    color: #fff;
 }
 .header .visitor i{
     font-size: 1.3em;
@@ -334,6 +370,9 @@ body{
     font-size: 15px;
     text-transform: uppercase;
     padding-top: 10px;
+}
+.dark .header .watch p{
+    color: #21252b;
 }
 .header .watch p i{
     font-size: 2em;
@@ -356,6 +395,9 @@ body{
     text-transform: uppercase;
     font-size: 15px;
     padding-top: 10px;
+}
+.dark .header .toApp p{
+    color: #21252b;
 }
 .header .toApp p i{
     margin-left: 10px;
@@ -385,6 +427,9 @@ body{
     -o-transition: all 0.3s ease;
     transition: all 0.3s ease;
 }
+.dark .choiseRadio .contenido{
+    border-color: #21252b;
+}
 .choiseRadio .contenido.show{
     -webkit-transform: translateY(0);
     -moz-transform: translateY(0);
@@ -411,9 +456,15 @@ body{
     color: #fff;
     margin: 0 10px;
 }
+.dark .choiseRadio .contenido ul li{
+    color: #21252b;
+}
 .choiseRadio .contenido ul li a{
     color: #fff;
     text-decoration: none;
+}
+.dark .choiseRadio .contenido ul li a{
+    color: #21252b;
 }
 .choiseRadio .contenido ul li .icon{
     display: block;
@@ -428,6 +479,10 @@ body{
     text-align: center;
     font-size: 0.4em;
     margin-right: 5px;
+}
+.dark .choiseRadio .contenido ul li .icon{
+    border-color: #21252b;
+    color: #21252b;
 }
 .choiseRadio .contenido ul li .name{
     display: inline-block;
@@ -687,6 +742,9 @@ body{
     text-transform: uppercase;
     font-weight: 600;
 }
+.dark .container .wrapper .novidades h2 span{
+    color: #21252b;
+}
 .container .wrapper .novidades h2 span.effect{
     position: absolute;
     display: block;
@@ -769,6 +827,10 @@ body{
     font-size: 22px;
     z-index: 1;
 }
+.dark .container .wrapper .novidades .newControls #nNext,
+.dark .container .wrapper .novidades .newControls #nPrev{
+    color: #21252b;
+}
 .container .wrapper .novidades .newControls #nNext{
     right: 9px;
     bottom: 15px;
@@ -784,6 +846,9 @@ body{
     margin-top: 5px;
     float: left;
     position: relative;
+}
+.dark .container .wrapper .mostPopularArtist{
+    background-color: #f5f5f5;
 }
 .container .wrapper .mostPopularArtist .imageHolder{
     height: 100%;
@@ -809,6 +874,9 @@ body{
     line-height: 50px;
     font-size: 20px;
     text-transform: uppercase;
+}
+.dark .container .wrapper .mostPopularArtist .popHead{
+    color: #21252b;
 }
 .container .wrapper .mostPopularArtist .popHead i{
     font-size: 30px;
@@ -857,6 +925,9 @@ body{
     text-decoration: none;
     text-align: center;
 }
+.dark .container .wrapper .gallery a.icon{
+    color: #21252b;
+}
 .container .wrapper .gallery a.icon i{
     line-height: 124px;
 }
@@ -869,6 +940,9 @@ body{
     font-weight: bold;
     padding: 0 20px;
     float: left;
+}
+.dark .container .wrapper .news .icon{
+    color: #21252b;
 }
 .container .wrapper .news .icon i{
     font-size: 20px;
@@ -884,6 +958,12 @@ body{
     -o-transform: skewX(-30deg);
     transform: skewX(-30deg);
     opacity: 0.4;
+}
+.dark .ticker-content a{
+    color: #21252b;
+}
+.dark .ticker-swipe span{
+    border-color: #21252b;
 }
 .container .sideBar{
     width: 265px;
@@ -914,6 +994,9 @@ body{
     text-align: center;
     cursor: pointer;
 }
+.dark .horoscopo .horsCtrl{
+    color: #21252b;
+}
 .horoscopo .horsCtrl#signoPrev{
     left: 0;
 }
@@ -930,6 +1013,9 @@ body{
 .horoscopo ul li{
     height: 130px;
     color: #fff;
+}
+.dark .horoscopo ul li{
+    color: #21252b;
 }
 .facebookBlock{
     padding: 20px;
@@ -990,16 +1076,6 @@ body{
 
 
 
-
-
-
-
-
-
-/* ==========================================================================
-   Media Queries
-   ========================================================================== */
-
 @media only screen and (min-width: 35em) {
 
 }
@@ -1011,87 +1087,48 @@ body{
 
 }
 
-/* ==========================================================================
-   Helper classes
-   ========================================================================== */
-
-.ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    *text-indent: -9999px;
-}
-
-.ir:before {
-    content: "";
-    display: block;
-    width: 0;
-    height: 150%;
-}
-
 .hidden {
     display: none !important;
     visibility: hidden;
 }
 
-.visuallyhidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-}
-
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-    clip: auto;
-    height: auto;
-    margin: 0;
-    overflow: visible;
-    position: static;
-    width: auto;
-}
-
-.invisible {
-    visibility: hidden;
-}
-
 .clearfix:before,
-.clearfix:after {
+.clearfix:after,
+.glock:before,
+.glock:after{
     content: " ";
     display: table;
 }
 
-.clearfix:after {
+.clearfix:after,
+.block:after{
     clear: both;
 }
 
-.clearfix {
+.clearfix,
+.glock{
     *zoom: 1;
 }
 
-/* ==========================================================================
-   Print styles
-   ========================================================================== */
 
 @media print {
     * {
-        background: transparent !important;
-        color: #000 !important;
-        box-shadow: none !important;
-        text-shadow: none !important;
+        background: #00ff00 !important;
+        color: #00ff00 !important;
+        box-shadow: #00ff00 !important;
+        text-shadow: #00ff00 !important;
+        transform: rotate(90deg);
     }
-
+    .content{
+        background-color: #00ff00 !important;
+    }
     a,
     a:visited {
-        text-decoration: underline;
+        color: #00ff00 !important;
     }
 
     a[href]:after {
-        content: " (" attr(href) ")";
+        color: #00ff00 !important;
     }
 
     abbr[title]:after {
@@ -1187,9 +1224,13 @@ body{
     float: left;
     margin-right: 10px;
 }
+.dark #tenList li>span{
+    color: #21252b;
+}
 #tenList li span.musicName{
     font-size: 14px;
     font-weight: 600;
+    display: block;
 }
 #tenList li span.artistName{
     font-size: 14px;
@@ -1200,6 +1241,7 @@ body{
 #tenList li p{
     float: left;
     margin: 0;
+    width: 140px;
 }
 
 #tenList li:before,
@@ -1270,11 +1312,17 @@ body{
     padding: 0;
     line-height: 45px;
 }
+.dark .popText .popHolder h3{
+    color: #21252b;
+}
 .popText .popHolder p{
     color: #fff;
     font-size: 14px;
     margin: 0;
     padding: 0;
+}
+.dark .popText .popHolder p{
+    color: #21252b;
 }
 .modal{
     position: fixed;
@@ -1503,13 +1551,13 @@ body{
     position: relative;
     z-index: 1;
 }
-.voting span.effect {
+.voting .radio-listing span.effect {
     position: absolute;
     left: 20px;
-    top: 10px;
+    top: 9px;
     display: block;
-    width: 14px;
-    height: 14px;
+    width: 13px;
+    height: 13px;
     border-radius: 50%;
     z-index: 0;
 }
@@ -1537,7 +1585,9 @@ body{
     color: #fff;
     font-size: 22px;
     font-weight: 600;
-
+}
+.dark .horoscopo .nameSign {
+    color: #21252b;
 }
 .horoscopo li{
     display: table;
@@ -1551,6 +1601,9 @@ body{
     display: table-cell;
     vertical-align: middle;
 }
+.dark .horoscopo .leftSign {
+    color: #21252b;
+}
 
 .rightSign {
     width: 665px;
@@ -1560,6 +1613,9 @@ body{
     padding-left: 20px;
     display: table-cell;
     vertical-align: middle;
+}
+.dark .rightSign {
+    color: #21252b;
 }
 
 #gearStick {
@@ -1587,7 +1643,7 @@ body{
 
 #gearBox {
     width: 350px;
-    height: 350px;
+    height: auto;
     background-color: #21252b;
     position: fixed;
     top: 70px;
@@ -1601,7 +1657,22 @@ body{
     -o-transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
     transition: all 0.4s cubic-bezier(.54, .12, .34, .94);
 }
-
+#gearBox label{
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 30px;
+}
+#gearBox .glock input,
+#gearBox .glock select{
+    width: 100%;
+    height: 35px;
+    background-color: #fff;
+    border: 0 none;
+    color: #282828;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 23.04413px;
+}
 #gearBox.open{
     right: 0;
 }
@@ -1615,6 +1686,14 @@ body{
     height: 40px;
     cursor: pointer;
 }
+#gearBox h4{
+    color: #fff;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 18px;
+    text-transform: uppercase;
+    margin: 0;
+}
 #gearBox h3 .fa{
     font-size: 1.7em;
     float: left;
@@ -1624,6 +1703,50 @@ body{
 #gearBox .section{
     display: none;
     box-sizing: border-box;
+    padding:  10px 0;
+}
+#gearBox .section .holder{
+    padding: 0 20px 10px;
+}
+#gearBox .section .colorPalete{
+    margin: 0;
+    padding: 0 12px;
+    width: 100%;
+    list-style: none;
+}
+#gearBox .section .colorPalete li{
+    float: left;
+    width: 72px;
+    height: 35px;
+    margin: 5px;
+    padding: 0;
+    cursor: pointer;
+}
+#gearBox .section .themeColor{
+    margin: 5px 0 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+}
+#gearBox .section .themeColor li{
+    width: 150px;
+    height: 35px;
+    float: left;
+    background: #fff;
+    cursor: pointer;
+
+    color: #0d1d31;
+    font-size: 15px;
+    font-weight: 300;
+    line-height: 23.04413px;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 35px;
+}
+#gearBox .section .themeColor li.dark{
+    background-color: #0d1d31;
+    color: #fff;
+    float: right;
 }
 #gearBox .separator{
     border-top: 1px solid #0f1013;
@@ -1637,4 +1760,18 @@ body{
     top: 5px;
     color: #fff;
     outline: 0;
+}
+
+[contenteditable] {
+  outline: 0;
+}
+[contenteditable]:empty {
+  box-shadow: inset 0 0 0 1px #e0e0e0;
+}
+[contenteditable]:empty:before {
+  content: attr(aria-label);
+  color: #cdcdcd;
+}
+[contenteditable]:focus {
+  box-shadow: inset 0 0 0 2px #bcbcbc;
 }

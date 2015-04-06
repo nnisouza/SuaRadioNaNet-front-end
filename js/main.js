@@ -1,11 +1,14 @@
 $(document).ready(function() {
+
+
+//    funções do player
     var audio = new Audio();
     audio.src = 'http://suaradio2.dyndns.ws:10342/stream';
     audio.controls = false;
     audio.loop = true;
-    audio.autoplay = false;
+    audio.autoplay = true;
     var canvas, ctx, source, context, analyser, fbc_array, bars, bar_x, bar_width, bar_height;
-    window.addEventListener("load", initPlayer, false);
+    initPlayer();
 
     function initPlayer(){
         document.getElementById('audio_box').appendChild(audio);
@@ -19,11 +22,17 @@ $(document).ready(function() {
         frameLooper();
     }
     function frameLooper(){
+        var barColor;
+        if($('body').hasClass('dark')){
+            barColor = '#21252b';
+        } else {
+            barColor = '#ffffff';
+        }
         window.requestAnimationFrame(frameLooper);
         fbc_array = new Uint8Array(analyser.frequencyBinCount);
         analyser.getByteFrequencyData(fbc_array);
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        ctx.fillStyle = '#ffffff';
+        ctx.fillStyle = barColor;
         bars = 7;
         for (var i = 0; i < bars; i++) {
             bar_x = i * 45;
@@ -33,12 +42,62 @@ $(document).ready(function() {
         }
     }
 
+    $('.header button.play').click(function() {
+        $(this).find('i').each(function() {
+            if($(this).hasClass('fa-play')) {
+                $(this).removeClass('fa-play').addClass('fa-pause');
+//                $('#bars').addClass('playing');
+                audio.play();
+            } else {
+                $(this).removeClass('fa-pause').addClass('fa-play');
+//                $('#bars').removeClass('playing');
+                audio.pause();
+            }
+        });
+    });
+
+    $('button#changeRadio').click(function() {
+        $('.choiseRadio .contenido').toggleClass('show');
+    });
+
+    $('.choiseRadio .contenido a').click(function() {
+        var musicName = $(this).data('sound'),
+            radioName = $(this).data('name');
+
+        audio.setAttribute('src', musicName);
+        $('.header .wichStation p span').text(radioName);
+        $('.header button.play').find('i').each(function() {
+            $(this).removeClass('fa-play').addClass('fa-pause');
+//            $('#bars').removeClass('playing');
+            audio.play();
+        });
+
+    });
+
+//    Previsão do tempo
+    $.simpleWeather({
+        woeid: '2357536', //2357536
+        location: 'Porto Alegre, RS',
+        unit: 'c',
+        success: function(weather) {
+          html = '<ul>';
+          html += '<li>Hoje em </li>';
+          html += '<li class="region customColor">'+weather.city+', '+weather.region+'</li>';
+          html += '<li> <i class="customColor icon-'+weather.code+'"></i></li>';
+          html += '<li class="temp customColor">'+weather.temp+'&deg;</li>';
+          html += '</ul>';
+
+          $("#weather").html(html);
+        },
+        error: function(error) {
+          $("#weather").html('<p>'+error+'</p>');
+        }
+      });
 
 
+//    Sliders por toda a page, o lot of slider
     var sync1 = $("#mainSlider");
     var sync2 = $("#thumbSlider");
-
-
 
     sync1.owlCarousel({
         singleItem : true,
@@ -71,7 +130,8 @@ $(document).ready(function() {
             .find(".owl-item")
             .removeClass("synced")
             .eq(current)
-            .addClass("synced")
+            .addClass("synced");
+
         if($("#thumbSlider").data("owlCarousel") !== undefined){
             center(current)
         }
@@ -111,23 +171,22 @@ $(document).ready(function() {
         }
     }
 
-
     $("#novidadeSlider").owlCarousel({
         singleItem : true,
         slideSpeed : 200,
         navigation: false,
         pagination:false,
     });
+
     var newSlider = $("#novidadeSlider").data('owlCarousel');
+
     $('#nPrev').click(function() {
         newSlider.prev();
     })
+
     $('#nNext').click(function() {
         newSlider.next();
     })
-
-
-
 
     $('#bannerPrev').click(function() {
         banner.prev();
@@ -136,83 +195,23 @@ $(document).ready(function() {
         banner.next();
     })
 
-
-
-
-
-
-
     $('#signos').owlCarousel({
         singleItem : true,
         navigation: false,
         pagination: false
     });
+
     var horoscopo = $("#signos").data('owlCarousel');
+
     $('#signoPrev').click(function() {
         horoscopo.prev();
     })
+
     $('#signoNext').click(function() {
         horoscopo.next();
     })
 
-
-
-
-
-
-
-    $('.header button.play').click(function() {
-        $(this).find('i').each(function() {
-            if($(this).hasClass('fa-play')) {
-                $(this).removeClass('fa-play').addClass('fa-pause');
-//                $('#bars').addClass('playing');
-                audio.play();
-            } else {
-                $(this).removeClass('fa-pause').addClass('fa-play');
-//                $('#bars').removeClass('playing');
-                audio.pause();
-            }
-        });
-    });
-
-    $('button#changeRadio').click(function() {
-        $('.choiseRadio .contenido').toggleClass('show');
-    });
-
-    $('.choiseRadio .contenido a').click(function() {
-        var musicName = $(this).data('sound'),
-            radioName = $(this).data('name');
-
-        audio.setAttribute('src', musicName);
-        $('.header .wichStation p span').text(radioName);
-
-        $('.header button.play').find('i').each(function() {
-            $(this).removeClass('fa-play').addClass('fa-pause');
-//            $('#bars').removeClass('playing');
-            audio.play();
-        });
-
-    });
-
-    $.simpleWeather({
-        woeid: '2357536', //2357536
-        location: 'Pelotas, RS',
-        unit: 'c',
-        success: function(weather) {
-          html = '<ul>';
-          html += '<li>Hoje em </li>';
-          html += '<li class="region customColor">'+weather.city+', '+weather.region+'</li>';
-          html += '<li> <i class="customColor icon-'+weather.code+'"></i></li>';
-          html += '<li class="temp customColor">'+weather.temp+'&deg;</li>';
-          html += '</ul>';
-
-          $("#weather").html(html);
-        },
-        error: function(error) {
-          $("#weather").html('<p>'+error+'</p>');
-        }
-      });
-
+//    Moda de Novidades
     $('#novidadeSlider a').click(function() {
         var image = $(this).data('image'),
             title = $(this).data('title'),
@@ -228,67 +227,23 @@ $(document).ready(function() {
             $('.modal .contentHolder').addClass('animated fadeInRight faster');
         });
     });
+
     $('#closeModal, .layer').click(function() {
         $('.modal').fadeOut('fast', function() {
             $('.modal .imageHolder').addClass('animated fadeInLeft faster');
             $('.modal .contentHolder').addClass('animated fadeInRight faster');
         });
     });
-    $('#gearStick').click(function() {
-        $('#gearStick').removeClass('open');
-        setTimeout(function(){
-            $('#gearBox').addClass('open');
-        }, 300);
-    });
-    $('#setStick').click(function() {
-        $('#gearBox').removeClass('open');
-        setTimeout(function(){
-            $('#gearStick').addClass('open');
-        }, 300);
-    });
 
-    $('#gearBox h3').click(function() {
-        var id = $(this).data('tab');
-        if($(this).hasClass('current')) {
-            $(this).removeClass('current');
-            $('.section#' + id).slideUp();
-        } else {
-            $(this).addClass('current');
-            $('.section#' + id).slideDown();
-        }
-    });
-
+//    Galeria de fotos/vídeos
     $('.galleryImage').smoothZoom({
         zoominSpeed: '100',
         zoomoutSpeed: '100',
         closeButton: true,
         showCaption: false
     });
-    $('.colorPicker').minicolors({
-        change: function(hex) {
-            $('.customBG').css({'background-color': hex});
-            $('.customColor').css({'color': hex});
-            $('.dcustomColor').css({'border-color': hex});
-        }
-    });
-    $('.colorPicker').focusin(function() {
-        $(this).addClass('focused');
-    });
-    $('.colorPicker').focusout(function() {
-        $(this).removeClass('focused');
-    });
 
-    $('.themeColor').click(function() {
-        var soul = $('this').data('soul');
-
-        if(soul == 'dark') {
-            $('body').removeClass('white')
-                     .addClass('dark');
-        } else if(soul == 'white') {
-            $('body').removeClass('dark')
-                     .addClass('white');
-        }
-    });
-
+//    Plugin de animação do RSS
     $('#js-news').ticker();
+
 });
