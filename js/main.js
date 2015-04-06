@@ -75,19 +75,22 @@ $(document).ready(function() {
     });
 
 //    Previsão do tempo
+    var cidade = $('#weather').data('cidade'),
+        estado = $('#weather').data('estado');
     $.simpleWeather({
         woeid: '2357536', //2357536
-        location: 'Porto Alegre, RS',
+        location: cidade + ', ' + estado,
         unit: 'c',
         success: function(weather) {
-          html = '<ul>';
-          html += '<li>Hoje em </li>';
-          html += '<li class="region customColor">'+weather.city+', '+weather.region+'</li>';
-          html += '<li> <i class="customColor icon-'+weather.code+'"></i></li>';
-          html += '<li class="temp customColor">'+weather.temp+'&deg;</li>';
-          html += '</ul>';
+            html = '<ul>';
+            html += '<li>Hoje em </li>';
+            html += '<li class="region customColor">'+weather.city+', '+weather.region+'</li>';
+            html += '<li> <i class="customColor icon-'+weather.code+'"></i></li>';
+            html += '<li class="temp customColor">'+weather.temp+'&deg;</li>';
+            html += '</ul>';
 
-          $("#weather").html(html);
+
+            $("#weather").html(html);
         },
         error: function(error) {
           $("#weather").html('<p>'+error+'</p>');
