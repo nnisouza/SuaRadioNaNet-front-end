@@ -5,8 +5,12 @@ body{
 .customBG{background-color: #ee1847;}
 
 .customBorder{border-color: #ee1847;}
+.editLayer .toltip:before{border-bottom-color: #ee1847;}
+.dense.d468-60 .editLayer .toltip:before{border-left-color: #ee1847;}
+.dense.d468-60 .editLayer .link .toltip:before{border-right-color: #ee1847;}
 
-.customColor,
-.footer .socialIcons li a:hover i{
+body .customColor,
+.footer .socialIcons li a:hover i,
+.editLayer>div ul li a:hover{
     color: #ee1847;
 }

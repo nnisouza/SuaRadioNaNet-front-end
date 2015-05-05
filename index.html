@@ -109,7 +109,7 @@
                 <div class="contenido customBG">
                     <ul class="clearfix">
                         <li>
-                            <a href="javascript:void();" data-sound="http://suaradio2.dyndns.ws:10342/stream" data-name="Real Streaming">
+                            <a href="javascript:void(0);" data-sound="http://50.7.66.10:10342/stream" data-name="Real Streaming">
                                 <span class="icon">
                                     <i class="fa fa-play fa-lg"></i>
                                 </span>
@@ -161,7 +161,7 @@
                        </div>
                    </div>
                    <div class="sec2">
-                       <div class="dense d468-60 customColor">
+                       <div class="dense d468-60 customColor" data-adwidth="468" data-adheight="60">
                            <p class="customColor">468 X 60</p>
                        </div>
                        <div id="weather" class="clearfix" data-cidade="Porto Alegre" data-estado="RS"></div>
@@ -194,15 +194,25 @@
                 </div>
                 <div class="menu customColor">
                     <ul>
-                        <li><a href="#" class="customColor liveT">A Rádio</a></li>
-                        <li><a href="" class="customColor liveT">Programação</a></li>
-                        <li><a href="" class="customColor liveT">Promoções</a></li>
-                        <li><a href="" class="customColor liveT">Novidades</a></li>
-                        <li><a href="" class="customColor liveT">Eventos</a></li>
-                        <li><a href="" class="customColor liveT">Galerias</a></li>
-                        <li><a href="" class="customColor liveT">Locutores</a></li>
-                        <li><a href="" class="customColor liveT">Contatos</a></li>
+                        <li><div class="customColor liveT">A Rádio</div></li>
+                        <li><div class="customColor liveT">Programação</div></li>
+                        <li><div class="customColor liveT">Promoções</div></li>
+                        <li><div class="customColor liveT">Novidades</div></li>
+                        <li><div class="customColor liveT">Eventos</div></li>
+                        <li><div class="customColor liveT">Galerias</div></li>
+                        <li><div class="customColor liveT">Locutores</div></li>
+                        <li><div class="customColor liveT">Contatos</div></li>
                     </ul>
+                </div>
+                <div class="pages">
+                    <div class="page">A Rádio</div>
+                    <div class="page">Programação</div>
+                    <div class="page">Promoções</div>
+                    <div class="page">Novidades</div>
+                    <div class="page">Eventos</div>
+                    <div class="page">Galerias</div>
+                    <div class="page">Locutores</div>
+                    <div class="page">Contatos</div>
                 </div>
                 <div class="slider" id="homeSlider">
                     <ul id="mainSlider">
@@ -249,7 +259,11 @@
                             </h2>
                             <ul id="novidadeSlider">
                                 <li class="item link">
-                                    <a href="javascript:void(0);" data-image="img/marcacao/modal/ozzy2.jpg" data-title="Black Sabbath anuncia último show da carreira" data-text="A formação original do Black Sabbath se despede dos palcos, desta vez, definitivamente. Este marco na história do Heavy Metal acontecerá no Ozzfest, sediado no Japão.">
+                                    <a href="javascript:void(0);" 
+                                        id="novidade01" 
+                                        data-image="img/marcacao/modal/ozzy2.jpg" 
+                                        data-title="Black Sabbath anuncia último show da carreira" 
+                                        data-text="A formação original do Black Sabbath se despede dos palcos, desta vez, definitivamente. Este marco na história do Heavy Metal acontecerá no Ozzfest, sediado no Japão.">
                                         <p class="customColor" class="liveT">
                                            Black Sabbath anuncia último show da carreira
                                         </p>
@@ -257,7 +271,11 @@
                                     </a>
                                 </li>
                                 <li class="item link">
-                                    <a href="javascript:void(0);" data-image="img/marcacao/modal/ozzy.jpg" data-title="Ozzy Osbournese apresenta em Porto Alegre" data-text="A apresentação acontecerá no Monster Tour, festival que acontecerá no dia 30 de abril, no estádio do Zequinha.">
+                                    <a href="javascript:void(0);" 
+                                        id="novidade02" 
+                                        data-image="img/marcacao/modal/ozzy.jpg" 
+                                        data-title="Ozzy Osbournese apresenta em Porto Alegre" 
+                                        data-text="A apresentação acontecerá no Monster Tour, festival que acontecerá no dia 30 de abril, no estádio do Zequinha.">
                                         <p class="customColor" class="liveT">
                                             Ozzy Osbournese apresenta em Porto Alegre
                                         </p>
@@ -265,7 +283,11 @@
                                     </a>
                                 </li>
                                 <li class="item link">
-                                    <a href="javascript:void(0);" data-image="img/marcacao/modal/lorde.jpg" data-title="Lorde vence melhor canção do ano no Grammy" data-text="Estreante no Grammy levou o prêmio de canção do ano na maior premiação da música, que acontece neste domingo (26) em Los Angeles.">
+                                    <a href="javascript:void(0);" 
+                                        id="novidade03" 
+                                        data-image="img/marcacao/modal/lorde.jpg" 
+                                        data-title="Lorde vence melhor canção do ano no Grammy" 
+                                        data-text="Estreante no Grammy levou o prêmio de canção do ano na maior premiação da música, que acontece neste domingo (26) em Los Angeles.">
                                         <p class="customColor" class="liveT">
                                             Lorde vence melhor canção do ano no Grammy
                                         </p>
@@ -284,7 +306,7 @@
                             </div>
                         </div>
                         <div class="galleryTitle clearfix">
-                            <div class="dense d468-60 customColor">
+                            <div class="dense d468-60 customColor" data-adwidth="468" data-adheight="60">
                                 <p class="customColor">468x60</p>
                             </div>
                             <h3 class="customColor">Galeria</h3>
@@ -517,7 +539,7 @@
                         </div>
                     </div>
                     <div class="sideBar">
-                        <div class="dense d250-250 customColor">
+                        <div class="dense d250-250 customColor" data-adwidth="250" data-adheight="250">
                             <p class="customColor">250x250</p>
                         </div>
                         <div class="voting">
@@ -558,11 +580,11 @@
                                 </button>
                             </form>
                         </div>
-                        <div class="dense d250-250 customColor">
+                        <div class="dense d250-250 customColor" data-adwidth="250" data-adheight="250">
                             <p class="customColor">250x250</p>
                         </div>
                         <div></div>
-                        <div class="dense d250-250 customColor">
+                        <div class="dense d250-250 customColor" data-adwidth="250" data-adheight="250">
                             <p class="customColor">250x250</p>
                         </div>
                     </div>
@@ -645,28 +667,28 @@
 
                 <div class="soundcloud">
                     <center>
-                        soundcloud
+<!--                        soundcloud-->
                     </center>
-    <!--                <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/6032749&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>-->
+<!--                    <iframe width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/users/6032749&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>-->
                 </div>
                 <div class="clearfix threeBlocksAsside">
-                    <div class="dense d300-300 customColor">
+                    <div class="dense d300-300 customColor" data-adwidth="300" data-adheight="300">
                         <p class="customColor">300x300</p>
                     </div>
-                    <div class="dense d300-300 customColor">
+                    <div class="dense d300-300 customColor" data-adwidth="300" data-adheight="300">
                         <p class="customColor">300x300</p>
                     </div>
-                    <div class="dense d300-300 customColor">
+                    <div class="dense d300-300 customColor" data-adwidth="300" data-adheight="300">
                         <p class="customColor">300x300</p>
                     </div>
                 </div>
                 <div class="facebookBlock">
                     <center>
-                    Facebook
-    <!--                    <div class="fb-like-box" data-href="https://www.facebook.com/nicovega" data-width="920" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>-->
+<!--                    Facebook-->
+<!--                        <div class="fb-like-box" data-href="https://www.facebook.com/nicovega" data-width="920" data-colorscheme="light" data-show-faces="true" data-header="false" data-stream="false" data-show-border="false"></div>-->
                     </center>
                 </div>
-                <div class="dense d728-90 customColor">
+                <div class="dense d728-90 customColor" data-adwidth="720" data-adheight="90">
                     <p class="customColor">728x90</p>
                 </div>
             </div>
@@ -711,14 +733,14 @@
                         <div class="imageHolder" style="background-image: url('img/marcacao/modal/ozzy.jpg'); background-size: cover; background-position: left center;">
                             <div class="mask"></div>
                         </div>
-                        <div class="contentHolder">
+                        <div class="contentHolder hidden">
                             <button id="closeModal">
                                 <i class="fa fa-times customColor"></i>
                             </button>
                             <div class="middler">
-                                <h2 class="customColor liveT"></h2>
+                                <h2 class="customColor liveT innerModal" data-novidadeId></h2>
                                 <hr/>
-                                <p class="text liveT"></p>
+                                <p class="text liveT innerModal" data-novidadeId></p>
                             </div>
                             <div class="sharing">
                                 <p class="customColor">
@@ -841,6 +863,7 @@
         <script type="text/javascript" src="js/vendor/easing.js"></script>
 <!--        <script type="text/javascript" src="js/vendor/smoothzoom.min.js"></script>-->
         <script type="text/javascript" src="js/vendor/smoothzoom.js"></script>
+        <script type="text/javascript" src="js/vendor/smoothScroll.js"></script>
         <script type="text/javascript" src="js/vendor/jquery.minicolors.min.js"></script>
         <script src="js/vendor/owl-carousel/owl.carousel.js"></script>
         <script src="js/vendor/jquery.ticker.js"></script>

@@ -870,7 +870,7 @@ if (typeof Object.create !== "function") {
                     minSwipe : null,
                     maxSwipe: null,
                     sliding : null,
-                    dargging: null,
+                    dragging: false,
                     targetElement : null
                 };
 

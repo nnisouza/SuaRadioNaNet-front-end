@@ -105,6 +105,10 @@ html {
 }
 body{
     font-family: 'Open Sans', sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 ::-moz-selection {
     background: #b3d4fc;
@@ -523,14 +527,28 @@ body{
     transform: translateX(-50%);
 }
 .container .menu ul li{
-    display: inline;
-    padding: 0 10px;
+    float: left;
+    padding: 20px 10px;
 }
-.container .menu ul li a{
-    line-height: 70px;
+.container .menu ul li div{
     text-decoration: none;
     font-size: 15px;
     font-weight: 600
+}
+.container .page{
+    display: none;
+    height: 300px;
+    position: relative;
+}
+.container .page a.closeBt{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    -moz-transform: translateX(-50%);
+    -ms-transform: translateX(-50%);
+    -o-transform: translateX(-50%);
+    transform: translateX(-50%);
 }
 .container .slider {
     margin-bottom: 5px;
@@ -640,6 +658,7 @@ body{
 .dense{
     background: #fff;
     border: 1px solid;
+    position: relative;
 }
 .dense p{
     text-align: center;
@@ -698,6 +717,7 @@ body{
 .container .wrapper{
     width: 675px;
     float: left;
+    padding-bottom: 10px;
 }
 .container .wrapper .novidades{
     position: relative;
@@ -842,7 +862,6 @@ body{
 .container .wrapper .mostPopularArtist{
     background: #21252b;
     width: 100%;
-    height: 175px;
     margin-top: 5px;
     float: left;
     position: relative;
@@ -933,6 +952,12 @@ body{
 }
 .container .wrapper .news{
     height: 45px;
+    overflow: hidden;
+    color: #fff;
+}
+.container .wrapper .news a{
+    color: #fff;
+    text-decoration: none;
 }
 .container .wrapper .news .icon{
     color: #fff;
@@ -983,6 +1008,7 @@ body{
     -ms-user-select: none;
     user-select: none;
     margin: 0 0 10px;
+    overflow: hidden;
 }
 .horoscopo .horsCtrl{
     position: absolute;
@@ -1237,6 +1263,7 @@ body{
     font-weight: 400;
 }
 #tenList li.first>span{background: #21252b!important;}
+.dark #tenList li.first>span{color: #fff!important;}
 
 #tenList li p{
     float: left;
@@ -1284,24 +1311,16 @@ body{
 .popText {
     width: 410px;
     height: 125px;
-    position: absolute;
-    top: 50px;
+    display: table;
 }
 .popText .popHolder{
-    position: absolute;
-    top: 50%;
-    left: 0;
     width: 100%;
     height: auto;
-
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
-    transform: translateY(-50%);
-
     box-sizing: border-box;
-    padding: 0 20px;
+    padding: 15px 20px;
+    
+    display: table-cell;
+    vertical-align: middle;
 }
 .popText .popHolder h3{
     font-size: 45px;
@@ -1452,7 +1471,7 @@ body{
     text-transform: uppercase;
     font-size: 25px;
 }
-.modal .container .content .contentHolder p{
+.modal  p{
     font-size: 20px;
     color: #282828;
     text-align: right;
@@ -1774,4 +1793,129 @@ body{
 }
 [contenteditable]:focus {
   box-shadow: inset 0 0 0 2px #bcbcbc;
+}
+
+.editLayer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: table;
+    vertical-align: middle;
+}
+.editLayer>div{
+    display: table-cell;
+    vertical-align: middle;
+}
+.editLayer>div ul{
+    margin: 0 auto;
+    padding: 0px 10px;
+    list-style: none;
+    width: 250px;
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+}
+.editLayer>div ul li{
+    float: left;
+    text-align: center;
+    width: 33%;
+}
+.editLayer a{
+    text-decoration: none;
+    color: #fff;
+}
+.editLayer>div ul li i{
+    display: block;
+}
+.editLayer>div ul li span{
+    display: block;
+    width: 100%;
+    font-size: 12px;
+    text-transform: uppercase;
+    line-height: 20px;
+}
+.editLayer .toltip{
+    position: absolute;
+    width: 230px;
+    height: 40px;
+    bottom: -100%;
+    left: 10px;
+    background: #ee1847;
+    z-index: 10;
+    color: #fff;
+    font-size: 13px;
+    line-height: 40px;
+}
+.editLayer .toltip:before{
+    content: '';
+    border-top: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #ee1847;
+    position: absolute;
+    top: -20px;
+}
+.editLayer .image .toltip:before{
+    left: 25px;
+}
+.editLayer .link .toltip:before{
+    left: 104px;
+}
+.editLayer .link .toltip input{
+    width: 100%;
+    height: 100%;
+    border: 0 none;
+    background: transparent;
+    padding: 0 10px;
+    box-sizing: border-box;
+    color: #fff;
+    outline: 0 none;
+}
+.dense.d468-60 .editLayer i{
+    font-size: 25px;
+}
+.dense.d468-60 .editLayer span{
+    font-size: 10px;
+    line-height: 15px;
+}
+.dense.d468-60 .editLayer>div ul{
+    width: 215px;
+}
+.dense.d468-60 .editLayer .toltip{
+    width: 116px;
+    height: 40px;
+    top: 1px;
+    left: -117px;
+}
+.dense.d468-60 .editLayer .toltip:before{
+    border-bottom-color: transparent!important;
+    left: 100%;
+    top: 10px;
+}
+
+.dense.d468-60 .editLayer .link .toltip{
+    left: 65%;
+}
+.dense.d468-60 .editLayer .link .toltip:before{
+    border-left-color: transparent!important;
+    left: -20px;
+}
+
+.editLayer ::-webkit-input-placeholder {
+   color: #fff;
+}
+
+.editLayer :-moz-placeholder { /* Firefox 18- */
+   color: #fff;  
+}
+
+.editLayer ::-moz-placeholder {  /* Firefox 19+ */
+   color: #fff;  
+}
+
+.editLayer :-ms-input-placeholder {  
+   color: #fff;  
 }

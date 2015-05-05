@@ -3,7 +3,7 @@ $(document).ready(function() {
 
 //    funções do player
     var audio = new Audio();
-    audio.src = 'http://suaradio2.dyndns.ws:10342/stream';
+    audio.source = 'http://50.7.66.10:10342/stream';
     audio.controls = false;
     audio.loop = true;
     audio.autoplay = true;
@@ -17,6 +17,7 @@ $(document).ready(function() {
         canvas = document.getElementById('analyser_render');
         ctx = canvas.getContext('2d');
         source = context.createMediaElementSource(audio);
+        console.log(source);
         source.connect(analyser);
         analyser.connect(context.destination);
         frameLooper();
@@ -96,6 +97,23 @@ $(document).ready(function() {
           $("#weather").html('<p>'+error+'</p>');
         }
       });
+    
+    
+//    Ação de páginas do menu
+    
+    $('.menu a').click(function() {
+        var eq = $(this).parent().index();
+        
+        $('.pages .page').stop().slideUp('fast');
+            $('.pages .page').eq(eq).slideDown();
+    });
+    $('.pages .page').each(function() {
+        var closeBt = '<a href="javascript:void(0);" class="closeBt"><i class="fa fa-times customColor"></i></a>'
+        $(this).prepend(closeBt);
+    });
+    $('.pages .page .closeBt').click(function() {
+        $(this).parent('.page').slideUp();
+    });
 
 
 //    Sliders por toda a page, o lot of slider
@@ -215,18 +233,21 @@ $(document).ready(function() {
     })
 
 //    Moda de Novidades
-    $('#novidadeSlider a').click(function() {
+    $('#novidadeSlider a').click(function(e) {
+        e.preventDefault;
         var image = $(this).data('image'),
             title = $(this).data('title'),
-            text = $(this).data('text');
+            text = $(this).data('text'),
+            novidadeId = $(this).attr('id');
 
         $('.modal .imageHolder').attr('style', 'background-image: url(' + image + ')');
-        $('.modal .contentHolder h2').text(title);
-        $('.modal .contentHolder p.text').text(text);
+        $('.modal .contentHolder h2').text(title).data('novidadeid', novidadeId);
+        $('.modal .contentHolder p.text').text(text).data('novidadeid', novidadeId);
 
 
         $('.modal').fadeIn('fast', function() {
             $('.modal .imageHolder').addClass('animated fadeInLeft faster');
+            $('.modal .contentHolder').removeClass('hidden');
             $('.modal .contentHolder').addClass('animated fadeInRight faster');
         });
     });
@@ -248,5 +269,8 @@ $(document).ready(function() {
 
 //    Plugin de animação do RSS
     $('#js-news').ticker();
+    
+    smoothScroll();
+    
 
 });

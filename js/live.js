@@ -1,32 +1,10 @@
 $(document).ready(function() {
     var primalContent = null;
 
-    function saveMe() {
-        var currentContent = $(this).text();
+    
 
-        if(currentContent.length == '0') {
-            alert('O campo não pode ficar vazio.');
-            $(this).focus();
-            return false;
-        } else {
-            if(primalContent == currentContent){
-                console.log('Nâo salva o texto: ' + currentContent);
-                return false;
-            } else {
-                console.log('Salva o texto: ' + currentContent);
-                return true;
-            }
-        }
-    }
-
-    $('.liveT').each(function() {
-        $(this).attr({
-            'aria-label': 'Insira um texto',
-            'contenteditable': true,
-            'spellcheck': false
-        });
-    });
-
+    $('.liveT').dblclick(allowEdit);
+    
     $('.liveT').focus(function(e) {
         primalContent = $(this).text();
     })
@@ -45,18 +23,20 @@ $(document).ready(function() {
     })
     .on('keyup', function(e) {
         var code = (e.keyCode ? e.keyCode : e.which);
-
+        
         if (code === 13) {
             $(this).blur();
             return false;
         }
     });
-
-    function themer(hex) {
-        $('.customBG').css({'background-color': hex});
-        $('.customColor').css({'color': hex});
-        $('.dcustomColor').css({'border-color': hex});
-    }
+    
+    
+    
+    
+    
+    
+    
+//    Caixa de informações
 
     $('#gearStick').click(function() {
         $('#gearStick').removeClass('open');
@@ -120,5 +100,93 @@ $(document).ready(function() {
 
         frameLooper();
     });
-
+    
+    $('.dense').each(function() {
+        var adWidth = $(this).data('adwidth'),
+            adHeight = $(this).data('adheight'),
+            sizeText;
+        
+        if($(this).hasClass('d468-60')){
+            sizeText = '';
+        } else {
+            sizeText = 'Tamanho do banner';
+        }
+        
+        var layerDense = '<div class="editLayer"><div><ul class="clearfix"><li class="image"><a href="javascript:void(0);"><i class="fa fa-cloud-upload fa-2x"></i><span>Enviar IMG</span></a><div class="toltip customBG hidden">' + sizeText + ' ' + adWidth + 'x' + adHeight + '</div></li><li class="link"><a href="javascript:void(0);"><i class="fa fa-link fa-2x"></i><span>Link</span></a><div class="toltip customBG hidden"><input type="text" placeholder="http://"/></div></li><li class="delete"><a href="javascript:void(0);"><i class="fa fa-trash-o fa-2x"></i><span>Excluir</span></a></li></ul></div></div>';
+        $(this).prepend(layerDense);
+    });
+    
+    $('.editLayer li>a').click(function() {
+        if($(this).hasClass('customColor')){
+            
+            $(this).removeClass('customColor');
+            $('.toltip').addClass('hidden');
+            
+        } else {
+            $('.editLayer li a').removeClass('customColor');
+            $('.toltip').addClass('hidden');
+            $(this).addClass('customColor');
+            $(this).parent('li').find('.toltip').removeClass('hidden');
+        }
+    });
+    $('.editLayer li.delete').click(function() {
+        if (confirm('Do you wanna die?')) {
+            alert('Morreu!');
+        } else {
+            alert('Salvou-se!');
+        }
+    });
+    
+    
+    
+    
+    
+    
+    
+    function allowEdit() {
+        $(this).attr({
+            'aria-label': 'Insira um texto',
+            'contenteditable': true,
+            'spellcheck': false
+        })
+        .focus();
+    }
+    
+    function saveMe() {
+        var currentContent = $(this).text();
+        
+        if(currentContent.length == '0') {
+            alert('O campo não pode ficar vazio.');
+            $(this).focus();
+            return false;
+        } else {
+            $(this).removeAttr('contenteditable');
+            if(primalContent == currentContent){
+                console.log('Nâo salva o texto: ' + currentContent);
+                return false;
+            } else {
+                console.log('Salva o texto: ' + currentContent);
+                
+                
+//                Se for dentro da modal
+                if($(this).hasClass('innerModal')){
+                    if($(this).prop("tagName") == 'H2'){
+                        var novidadeId = $(this).data('novidadeid');
+                        $('#novidadeSlider #' + novidadeId).data('title', currentContent).find('p').text(currentContent);
+                    } else if($(this).prop("tagName") == 'P'){
+                        var novidadeId = $(this).data('novidadeid');
+                        $('#novidadeSlider #' + novidadeId).data('text', currentContent);
+                    }
+                }
+                
+                return true;
+            }
+        }
+    }
+    
+    function themer(hex) {
+        $('.customBG').css({'background-color': hex});
+        $('.customColor').css({'color': hex});
+        $('.dcustomColor').css({'border-color': hex});
+    }
 });
