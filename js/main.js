@@ -101,12 +101,29 @@ $(document).ready(function() {
     
 //    Ação de páginas do menu
     
-    $('.menu a').click(function() {
+    $('.menu li div').click(function() {
+        var body = $('body');
+        var parenth = $(this);
+        var pager = $(this).parent('.pager');
         var eq = $(this).parent().index();
         
-        $('.pages .page').stop().slideUp('fast');
-            $('.pages .page').eq(eq).slideDown();
+        if(body.hasClass('live')) {
+            if(parenth.hasClass('open')){
+                $('.menuTooltip').hide();
+                $('.pages .page').slideUp('fast');
+                $('.menu li div').removeClass('open');
+            } else {
+                $('.menuTooltip').hide();
+                $(this).parent().find('.menuTooltip').show();
+                $('.menu li div').removeClass('open');
+                parenth.addClass('open');
+                $('.pages .page').stop().slideUp('fast');
+                $('.pages .page').eq(eq).slideDown();
+            }
+        }
+        
     });
+    4
     $('.pages .page').each(function() {
         var closeBt = '<a href="javascript:void(0);" class="closeBt"><i class="fa fa-times customColor"></i></a>'
         $(this).prepend(closeBt);

@@ -1,8 +1,8 @@
 $(document).ready(function() {
     var primalContent = null;
 
+    $('body').addClass('live');
     
-
     $('.liveT').dblclick(allowEdit);
     
     $('.liveT').focus(function(e) {
@@ -31,7 +31,10 @@ $(document).ready(function() {
     });
     
     
-    
+    $('.menu li div').click(function() {
+        if ($('body').hasClass('live')){
+        }
+    });
     
     
     
@@ -112,7 +115,37 @@ $(document).ready(function() {
             sizeText = 'Tamanho do banner';
         }
         
-        var layerDense = '<div class="editLayer"><div><ul class="clearfix"><li class="image"><a href="javascript:void(0);"><i class="fa fa-cloud-upload fa-2x"></i><span>Enviar IMG</span></a><div class="toltip customBG hidden">' + sizeText + ' ' + adWidth + 'x' + adHeight + '</div></li><li class="link"><a href="javascript:void(0);"><i class="fa fa-link fa-2x"></i><span>Link</span></a><div class="toltip customBG hidden"><input type="text" placeholder="http://"/></div></li><li class="delete"><a href="javascript:void(0);"><i class="fa fa-trash-o fa-2x"></i><span>Excluir</span></a></li></ul></div></div>';
+        var layerDense = '';
+        
+        layerDense = '<div class="imageUploadHolder"></div>';
+        layerDense += '<div class="editLayer">';
+            layerDense += '<div>';
+                layerDense += '<ul class="clearfix">';
+                    layerDense += '<li class="image">';
+                        layerDense += '<a href="javascript:void(0);"><i class="fa fa-cloud-upload fa-2x"></i><span>Enviar IMG</span></a>';
+                        layerDense += '<div class="toltip customBG hidden">';
+                            layerDense += sizeText;
+                            layerDense += ' ';
+                            layerDense += adWidth;
+                            layerDense += 'x';
+                            layerDense += adHeight;
+                        layerDense += '</div>';
+                    layerDense += '</li>';
+
+                    layerDense += '<li class="link">';
+                        layerDense += '<a href="javascript:void(0);"><i class="fa fa-link fa-2x"></i><span>Link</span></a>';
+                        layerDense += '<div class="toltip customBG hidden">';
+                            layerDense += '<input type="text" placeholder="http://"/>';
+                        layerDense += '</div>';
+                    layerDense += '</li>';
+        
+                    layerDense += '<li class="delete">';
+                        layerDense += '<a href="javascript:void(0);"><i class="fa fa-trash-o fa-2x"></i><span>Excluir</span></a>';
+                    layerDense += '</li>';
+                layerDense += '</ul>';
+            layerDense += '</div>';
+        layerDense += '</div>';
+        layerDense += '';
         $(this).prepend(layerDense);
     });
     
@@ -121,22 +154,69 @@ $(document).ready(function() {
             
             $(this).removeClass('customColor');
             $('.toltip').addClass('hidden');
+            $('.dense').removeClass('uploading');
             
         } else {
             $('.editLayer li a').removeClass('customColor');
             $('.toltip').addClass('hidden');
+            $('.dense').removeClass('uploading');
             $(this).addClass('customColor');
             $(this).parent('li').find('.toltip').removeClass('hidden');
         }
     });
     $('.editLayer li.delete').click(function() {
-        if (confirm('Do you wanna die?')) {
-            alert('Morreu!');
+        if (confirm('Tem certeza que deseja excluir este item?')) {
+            alert('Deletado com sucesso');
         } else {
-            alert('Salvou-se!');
+            return false;
         }
     });
     
+    
+    Dropzone.autoDiscover = false;
+            
+    $('.editLayer li.image').click(function() {
+        $parents = $(this).parents('.dense');
+        $parents.prepend('<form method="post" class="dropzone"></form>');
+        var whereToPut = $(this).parents('.dense').find('.imageUploadHolder');
+        var dataW = $(this).parents('.dense').data('adwidth');
+        var dataH = $(this).parents('.dense').data('adheight');
+        
+        $element = $(this);
+        $parent = $(this).parents('.dense').find('.dz-preview');
+        $parents.addClass('uploading');
+        
+        var myDrop = $(this).parents('.dense').find('.dropzone');
+        
+        var myDropzone = new Dropzone('.dropzone', {
+            url: "upload.php",
+            thumbnailWidth: dataW,
+            thumbnailHeight: dataH,
+            maxFiles: 1,
+            previewsContainer: whereToPut,
+            success: function(elem) {
+                $element.parents('.dense').find('.dz-preview').addClass('dz-success');
+                $('.editLayer li a').removeClass('customColor');
+                $('.toltip').addClass('hidden');
+                
+                
+                setTimeout(function(){
+                    $parents.removeClass('uploading');
+                    myDropzone.removeAllFiles();
+                }, 1500);
+            },
+            error: function() {
+                $parents.find('form').remove();
+//                $element.parents('.dense').find('.dz-preview:last-child').remove();
+                $element.parents('.dense').find('.dz-preview').addClass('dz-error');
+                setTimeout(function(){
+                    Dropzone.removeAllFiles();
+                    $element.parents('.dense').find('.dz-preview').slideUp();
+                    $parents.removeClass('uploading');
+                }, 1500);
+            }
+        });
+    });
     
     
     
