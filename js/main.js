@@ -101,36 +101,24 @@ $(document).ready(function() {
     
 //    Ação de páginas do menu
     
-    $('.menu li div').click(function() {
-        var body = $('body');
-        var parenth = $(this);
-        var pager = $(this).parent('.pager');
+    $('.menu li div.pageOpener').click(function() {
+        
         var eq = $(this).parent().index();
         
-        if(body.hasClass('live')) {
-            if(parenth.hasClass('open')){
-                $('.menuTooltip').hide();
-                $('.pages .page').slideUp('fast');
-                $('.menu li div').removeClass('open');
-            } else {
-                $('.menuTooltip').hide();
-                $(this).parent().find('.menuTooltip').show();
-                $('.menu li div').removeClass('open');
-                parenth.addClass('open');
-                $('.pages .page').stop().slideUp('fast');
-                $('.pages .page').eq(eq).slideDown();
-            }
-        }
+        closePages();
+        $('.pages .page').eq(eq).stop().slideDown('300');
         
     });
-    4
-    $('.pages .page').each(function() {
-        var closeBt = '<a href="javascript:void(0);" class="closeBt"><i class="fa fa-times customColor"></i></a>'
-        $(this).prepend(closeBt);
-    });
-    $('.pages .page .closeBt').click(function() {
-        $(this).parent('.page').slideUp();
-    });
+    
+    var closeBt = '<a href="javascript:void(0);" class="closeBt customBG"><i class="fa fa-plus"></i></a>'
+    
+    $('.pages').append(closeBt);
+    
+    $('.pages .closeBt, .closeMe button').click(closePages);
+    
+    function closePages() {
+        $('.pages .page').slideUp();
+    }
 
 
 //    Sliders por toda a page, o lot of slider
